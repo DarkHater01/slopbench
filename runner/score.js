@@ -64,8 +64,23 @@ for (const [k, runs] of groups) {
   if (new Set(runs.map((r) => r.rep)).size !== cfg.reps) fail(`duplicate reps in group ${k}`);
 }
 
-const expected = cfg.models.length * taskIds.length * Object.keys(cfg.variants).length;
-if (groups.size !== expected) fail(`expected ${expected} groups, got ${groups.size}`);
+const modelStats = {};
+for (const r of raw) {
+  const s = (modelStats[r.model] = modelStats[r.model] || { runs: 0, errors: 0, modelGroups: 0 });
+  s.runs++;
+  if (r.error) s.errors++;
+}
+for (const k of groups.keys()) modelStats[k.split("|")[0]].modelGroups++;
+const perModelGroups = taskIds.length * Object.keys(cfg.variants).length;
+
+// Strict by default (this file is the check). SLOPBENCH_PARTIAL=1 allows scoring
+// a mid-run snapshot: complete models are scored, the rest are flagged.
+const PARTIAL = !!process.env.SLOPBENCH_PARTIAL;
+const exactModels = cfg.models.length * perModelGroups;
+if (groups.size !== exactModels) {
+  if (!PARTIAL) fail(`expected ${exactModels} groups, got ${groups.size}`);
+  if (groups.size > exactModels) fail(`more groups than expected (${groups.size} > ${exactModels})`);
+}
 
 const models = {};
 for (const r of raw) {
@@ -73,6 +88,16 @@ for (const r of raw) {
 }
 
 for (const [model, m] of Object.entries(models)) {
+  const s = modelStats[model];
+  m.status = "complete";
+  if (PARTIAL && (s.errors === s.runs || s.modelGroups !== perModelGroups)) {
+    m.status = s.errors === s.runs ? "blocked" : "in_progress";
+    m.note =
+      s.errors === s.runs
+        ? `all ${s.runs} runs failed with API errors`
+        : `partial: ${s.runs} of ${perModelGroups * cfg.reps} runs`;
+    continue;
+  }
   for (const variant of Object.keys(cfg.variants)) {
     const perTask = {};
     for (const taskId of taskIds) {
@@ -133,12 +158,21 @@ const results = {
   reps: cfg.reps,
   qualify_threshold: QUALIFY,
   tasks: refLoc,
-  models: Object.entries(models).map(([id, m]) => ({
-    id,
-    vanilla: m.variants.vanilla,
-    minimal: m.variants.minimal,
-    ponytail_delta: m.ponytail_delta,
-  })),
+  models: cfg.models
+    .map(({ id }) => {
+      const m = models[id];
+      if (!m) return PARTIAL ? { id, status: "pending" } : null;
+      if (m.status !== "complete")
+        return { id, status: m.status, note: m.note || "not scored" };
+      return {
+        id,
+        status: "complete",
+        vanilla: m.variants.vanilla,
+        minimal: m.variants.minimal,
+        ponytail_delta: m.ponytail_delta,
+      };
+    })
+    .filter(Boolean),
 };
 
 fs.writeFileSync(OUT, JSON.stringify(results, null, 2));

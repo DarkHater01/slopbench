@@ -1,0 +1,113 @@
+{
+  "generated_at": "2026-10-10T12:26:48.271Z",
+  "reps": 5,
+  "qualify_threshold": 0.6,
+  "tasks": {
+    "01-parse-args": 19,
+    "02-dedupe-json": 12,
+    "03-date-range": 11,
+    "04-retry-backoff": 11,
+    "05-csv-merge": 24
+  },
+  "models": [
+    {
+      "id": "poolside/laguna-s-2.1:free",
+      "status": "complete",
+      "vanilla": {
+        "per_task": {
+          "01-parse-args": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 24,
+            "inflation": 1.26
+          },
+          "02-dedupe-json": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 12,
+            "inflation": 1
+          },
+          "03-date-range": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 14,
+            "inflation": 1.27
+          },
+          "04-retry-backoff": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 11,
+            "inflation": 1
+          },
+          "05-csv-merge": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 35,
+            "inflation": 1.46
+          }
+        },
+        "pass_at_1": 1,
+        "inflation": 1.2
+      },
+      "minimal": {
+        "per_task": {
+          "01-parse-args": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 20,
+            "inflation": 1.05
+          },
+          "02-dedupe-json": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 12,
+            "inflation": 1
+          },
+          "03-date-range": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 13,
+            "inflation": 1.18
+          },
+          "04-retry-backoff": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 11,
+            "inflation": 1
+          },
+          "05-csv-merge": {
+            "pass_at_1": 0.6,
+            "consistent": false,
+            "loc": 31,
+            "inflation": 1.29
+          }
+        },
+        "pass_at_1": 0.92,
+        "inflation": 1.1
+      },
+      "ponytail_delta": {
+        "per_task": {
+          "01-parse-args": 4,
+          "02-dedupe-json": 0,
+          "03-date-range": 1,
+          "04-retry-backoff": 0,
+          "05-csv-merge": 4
+        },
+        "overall": 1.8
+      }
+    },
+    {
+      "id": "cohere/north-mini-code:free",
+      "status": "blocked",
+      "note": "all 50 runs failed with API errors"
+    },
+    {
+      "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "status": "pending"
+    },
+    {
+      "id": "google/gemma-4-31b-it:free",
+      "status": "pending"
+    }
+  ]
+}

@@ -1,0 +1,1296 @@
+[
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 23,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 23,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 27,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 17,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 14,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 13,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 13,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 17,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 14,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 13,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 13,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 13,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 13,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 33,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 36,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 35,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 38,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 28,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 31,
+    "tail": ""
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 27,
+    "tail": "st_basic_left_join - AttributeError: 'dict' ...\nFAILED tests/test_solution.py::test_no_match_keeps_row_without_right_keys - A...\nFAILED tests/test_solution.py::test_duplicate_right_key_first_wins - Attribut...\nFAILED tests/test_solution.py::test_right_overrides_same_name_column - Attrib...\nFAILED tests/test_solution.py::test_missing_column_raises - AttributeError: '...\n5 failed, 1 passed in 0.09s\n"
+  },
+  {
+    "model": "poolside/laguna-s-2.1:free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": false,
+    "error": "OpenRouter request failed for poolside/laguna-s-2.1:free: OpenRouter 429 for poolside/laguna-s-2.1:free after 5 retries",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 429 for cohere/north-mini-code:free after 5 retries",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 429 for cohere/north-mini-code:free after 5 retries",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 429 for cohere/north-mini-code:free after 5 retries",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 429 for cohere/north-mini-code:free after 5 retries",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 429 for cohere/north-mini-code:free after 5 retries",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 429 for cohere/north-mini-code:free after 5 retries",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 429 for cohere/north-mini-code:free after 5 retries",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 429 for cohere/north-mini-code:free after 5 retries",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 429 for cohere/north-mini-code:free after 5 retries",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 429 for cohere/north-mini-code:free after 5 retries",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 429 for cohere/north-mini-code:free after 5 retries",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 429 for cohere/north-mini-code:free after 5 retries",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 429 for cohere/north-mini-code:free after 5 retries",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: fetch failed",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 403 for cohere/north-mini-code:free: { \"success\": false, \"error\": \"Access denied by security policy.\" }",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 403 for cohere/north-mini-code:free: { \"success\": false, \"error\": \"Access denied by security policy.\" }",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 403 for cohere/north-mini-code:free: { \"success\": false, \"error\": \"Access denied by security policy.\" }",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 403 for cohere/north-mini-code:free: { \"success\": false, \"error\": \"Access denied by security policy.\" }",
+    "loc": 0,
+    "junit": null
+  }
+]

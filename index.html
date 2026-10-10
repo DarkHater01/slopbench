@@ -34,13 +34,16 @@ const fmt = (v, unit = "") => v === null || v === undefined
 fetch("data/results.json").then(r => r.json()).then(d => {
   const rows = d.models
     .slice()
-    .sort((a, b) => (b.vanilla.pass_at_1 - a.vanilla.pass_at_1) || ((a.vanilla.inflation ?? 99) - (b.vanilla.inflation ?? 99)))
-    .map(m => `<tr>
+    .sort((a, b) => (b.vanilla?.pass_at_1 ?? -1) - (a.vanilla?.pass_at_1 ?? -1) || ((a.vanilla?.inflation ?? 99) - (b.vanilla?.inflation ?? 99)))
+    .map(m => m.status === "complete" ? `<tr>
       <td>${m.id}</td>
       <td>${fmt(m.vanilla.pass_at_1)}</td>
       <td>${fmt(m.vanilla.inflation, "×")}</td>
       <td>${fmt(m.minimal.inflation, "×")}</td>
       <td>${fmt(m.ponytail_delta?.overall, " LOC")}</td>
+    </tr>` : `<tr>
+      <td>${m.id} <span class="warn">(${m.status})</span></td>
+      <td colspan="4" class="null">${m.note || "queued"}</td>
     </tr>`).join("");
   document.getElementById("app").innerHTML = `
     <table>
