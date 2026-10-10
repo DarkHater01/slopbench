@@ -92,7 +92,8 @@ async function callOpenRouter(model, system, user) {
       if (typeof content !== "string") throw new Error(`empty completion from ${model}`);
       return content;
     } catch (e) {
-      if (attempt === 5) fail(`OpenRouter request failed for ${model}: ${e.message}`);
+      // Let the per-run error handler in main() record this and keep the batch going.
+      if (attempt === 5) throw new Error(`OpenRouter request failed for ${model}: ${e.message}`);
       await new Promise((r) => setTimeout(r, 60_000));
     } finally {
       clearTimeout(timer);
