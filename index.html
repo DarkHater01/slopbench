@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SlopBench — how much code do LLMs inflate?</title>
+<style>
+  :root { color-scheme: dark; }
+  body { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; margin: 2rem auto; max-width: 960px; padding: 0 1rem; color: #e6e6e6; background: #111; }
+  h1 { font-size: 1.4rem; } h1 span { color: #7ec8a9; }
+  p.sub { color: #999; }
+  table { border-collapse: collapse; width: 100%; margin-top: 1.5rem; font-size: .9rem; }
+  th, td { padding: .5rem .6rem; border-bottom: 1px solid #333; text-align: right; }
+  th:first-child, td:first-child { text-align: left; }
+  th { color: #888; font-weight: 600; text-transform: uppercase; font-size: .72rem; letter-spacing: .05em; }
+  tr:hover { background: #1b1b1b; }
+  .good { color: #7ec8a9; } .bad { color: #e07a7a; } .warn { color: #d8b45a; }
+  .null { color: #555; }
+  footer { margin-top: 2rem; color: #666; font-size: .8rem; }
+  a { color: #7ec8a9; }
+</style>
+</head>
+<body>
+<h1>🪢 <span>SlopBench</span> — how much code do LLMs inflate?</h1>
+<p class="sub">Each model solves the same 5 Python tasks inside a sandbox (no network, non-root).
+<span class="good">inflation</span> = generated LOC ÷ reference LOC, only for runs that pass the tests (pass@1 ≥ 0.6).
+<span class="good">Δ ponytail</span> = LOC saved by the minimalism system prompt vs vanilla.</p>
+<div id="app">loading…</div>
+<footer>Reference solutions are in-repo — contest them via PR. Data regenerated weekly by GitHub Actions.</footer>
+<script>
+const fmt = (v, unit = "") => v === null || v === undefined
+  ? '<span class="null">—</span>'
+  : (v < 1 ? '<span class="good">' : v > 5 ? '<span class="bad">' : v > 3 ? '<span class="warn">' : '') + v + unit + '</span>';
+fetch("data/results.json").then(r => r.json()).then(d => {
+  const rows = d.models
+    .slice()
+    .sort((a, b) => (b.vanilla.pass_at_1 - a.vanilla.pass_at_1) || ((a.vanilla.inflation ?? 99) - (b.vanilla.inflation ?? 99)))
+    .map(m => `<tr>
+      <td>${m.id}</td>
+      <td>${fmt(m.vanilla.pass_at_1)}</td>
+      <td>${fmt(m.vanilla.inflation, "×")}</td>
+      <td>${fmt(m.minimal.inflation, "×")}</td>
+      <td>${fmt(m.ponytail_delta?.overall, " LOC")}</td>
+    </tr>`).join("");
+  document.getElementById("app").innerHTML = `
+    <table>
+      <thead><tr>
+        <th>model</th><th>pass@1</th><th>inflation (vanilla)</th><th>inflation (minimal prompt)</th><th>Δ ponytail</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <p class="sub">tasks: ${Object.entries(d.tasks).map(([t, l]) => `${t} (ref ${l} LOC)`).join(" · ")} · reps: ${d.reps} · generated ${d.generated_at}</p>`;
+}).catch(e => document.getElementById("app").textContent = "failed to load data/results.json — serve this dir over HTTP (python3 -m http.server)");
+</script>
+</body>
+</html>

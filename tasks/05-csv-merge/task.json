@@ -1,0 +1,1 @@
+{ "id": "05-csv-merge", "language": "python", "entry": "solution.py", "test_cmd": "python -m pytest -q" }
