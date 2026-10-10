@@ -1,5 +1,8 @@
 # SlopBench
 
+[![CI](https://github.com/DarkHater01/slopbench/actions/workflows/bench.yml/badge.svg)](https://github.com/DarkHater01/slopbench/actions)
+[![MIT](https://img.shields.io/github/license/DarkHater01/slopbench)](LICENSE)
+
 **Code benchmarks measure whether a model solves the task. None measure how much code it wastes.**
 
 SlopBench reports two numbers per model — and one that nobody else publishes:
@@ -32,6 +35,8 @@ A model that solves a 12-line task in 96 lines has inflation ≈ 8.0×. It passe
 | _3 models pending — snapshot in progress_ | | | | |
 
 _Snapshot generated weekly by [GitHub Actions](.github/workflows/bench.yml) at `data/results.json`. Previous snapshots are in git history._
+
+![live leaderboard](docs/screenshot.png)
 
 ---
 
