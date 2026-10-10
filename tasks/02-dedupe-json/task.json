@@ -1,0 +1,1 @@
+{ "id": "02-dedupe-json", "language": "python", "entry": "solution.py", "test_cmd": "python -m pytest -q" }
