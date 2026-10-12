@@ -2342,5 +2342,15 @@
     "error": "OpenRouter request failed for google/gemma-4-31b-it:free: OpenRouter 429 for google/gemma-4-31b-it:free after 5 retries",
     "loc": 0,
     "junit": null
+  },
+  {
+    "model": "google/gemma-4-31b-it:free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": false,
+    "error": "OpenRouter request failed for google/gemma-4-31b-it:free: OpenRouter 429 for google/gemma-4-31b-it:free after 5 retries",
+    "loc": 0,
+    "junit": null
   }
 ]
