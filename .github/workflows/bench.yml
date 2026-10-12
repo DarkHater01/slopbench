@@ -11,7 +11,7 @@ permissions:
 jobs:
   bench:
     runs-on: ubuntu-latest
-    timeout-minutes: 420 # full 200-run batch stalls on free-tier backoffs; be generous
+    timeout-minutes: 600 # free-tier stalls on 429 backoffs; checkpoints cap any loss at 2 min
     steps:
       - name: Checkout (full history so the results commit pushes)
         uses: actions/checkout@v4
@@ -26,19 +26,26 @@ jobs:
       - name: Build sandbox image
         run: docker build -t slopbench-sandbox sandbox/
 
-      - name: Run benchmark
+      - name: Run benchmark (checkpointed)
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
-          node runner/run.js
-          node runner/score.js
-
-      - name: Commit results
-        run: |
           git config user.name "slopbench-bot"
           git config user.email "actions@users.noreply.github.com"
+          node runner/run.js &
+          pid=$!
+          while kill -0 "$pid" 2>/dev/null; do
+            sleep 120
+            git add data/
+            git diff --cached --quiet || {
+              git commit -m "chore: bench checkpoint"
+              git pull --rebase origin main
+              git push -q
+            }
+          done
+          wait "$pid"
+          node runner/score.js
           git add data/
           git diff --cached --quiet || git commit -m "chore: weekly benchmark results"
-          # concurrent runs push to main; rebase so we never lose the commit to a race
           git pull --rebase origin main
           git push
