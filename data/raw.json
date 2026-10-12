@@ -1602,5 +1602,15 @@
     "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 429 for cohere/north-mini-code:free after 5 retries",
     "loc": 0,
     "junit": null
+  },
+  {
+    "model": "cohere/north-mini-code:free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": false,
+    "error": "OpenRouter request failed for cohere/north-mini-code:free: OpenRouter 429 for cohere/north-mini-code:free after 5 retries",
+    "loc": 0,
+    "junit": null
   }
 ]
