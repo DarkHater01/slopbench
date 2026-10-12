@@ -1316,5 +1316,17 @@
     "suspicious": false,
     "loc": 26,
     "tail": "es/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/junitxml.py\", line 652, in pytest_sessionfinish\n    with open(self.logfile, \"w\", encoding=\"utf-8\") as logfile:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] Permission denied: '/job/out.xml'\n"
+  },
+  {
+    "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": false,
+    "timed_out": false,
+    "junit": null,
+    "suspicious": false,
+    "loc": 22,
+    "tail": "es/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/junitxml.py\", line 652, in pytest_sessionfinish\n    with open(self.logfile, \"w\", encoding=\"utf-8\") as logfile:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] Permission denied: '/job/out.xml'\n"
   }
 ]
