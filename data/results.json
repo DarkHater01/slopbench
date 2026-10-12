@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T06:26:45.658Z",
+  "generated_at": "2026-10-12T13:30:05.240Z",
   "reps": 5,
   "qualify_threshold": 0.6,
   "tasks": {
@@ -98,83 +98,7 @@
     },
     {
       "id": "cohere/north-mini-code:free",
-      "status": "complete",
-      "vanilla": {
-        "per_task": {
-          "01-parse-args": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "02-dedupe-json": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "03-date-range": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "04-retry-backoff": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "05-csv-merge": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          }
-        },
-        "pass_at_1": 0,
-        "inflation": null
-      },
-      "minimal": {
-        "per_task": {
-          "01-parse-args": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "02-dedupe-json": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "03-date-range": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "04-retry-backoff": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "05-csv-merge": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          }
-        },
-        "pass_at_1": 0,
-        "inflation": null
-      },
-      "ponytail_delta": {
-        "per_task": {},
-        "overall": null
-      }
+      "status": "pending"
     },
     {
       "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
@@ -258,83 +182,7 @@
     },
     {
       "id": "google/gemma-4-31b-it:free",
-      "status": "complete",
-      "vanilla": {
-        "per_task": {
-          "01-parse-args": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "02-dedupe-json": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "03-date-range": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "04-retry-backoff": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "05-csv-merge": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          }
-        },
-        "pass_at_1": 0,
-        "inflation": null
-      },
-      "minimal": {
-        "per_task": {
-          "01-parse-args": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "02-dedupe-json": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "03-date-range": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "04-retry-backoff": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "05-csv-merge": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          }
-        },
-        "pass_at_1": 0,
-        "inflation": null
-      },
-      "ponytail_delta": {
-        "per_task": {},
-        "overall": null
-      }
+      "status": "pending"
     }
   ]
 }

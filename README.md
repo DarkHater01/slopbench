@@ -29,10 +29,14 @@ A model that solves a 12-line task in 96 lines has inflation ≈ 8.0×. It passe
 
 **Inflation is only counted for runs that pass the tests.** A two-line obfuscated one-liner that fails nothing? It doesn't qualify. Neither does a 3-line solution that passes 1 out of 5 tries. A model must reach `pass@1 ≥ 0.6` on a task before its LOC counts there. See [ADR-001](docs/adr/ADR-001-metric.md).
 
+<!-- LEADERBOARD:start -->
 | model | pass@1 | inflation | inflation (minimal prompt) | Δ ponytail |
 |---|---|---|---|---|
-| **poolside/laguna-s-2.1:free** | **1.0** | **1.20×** | **1.10×** | **−1.8 LOC** |
-| _3 models pending — snapshot in progress_ | | | | |
+| poolside/laguna-s-2.1:free | 1 | 1.2× | 1.1× | −1.8 LOC |
+| cohere/north-mini-code:free | _pending_ | | | |
+| nvidia/nemotron-3-ultra-550b-a55b:free | 0 | — | — | — |
+| google/gemma-4-31b-it:free | _pending_ | | | |
+<!-- LEADERBOARD:end -->
 
 _Snapshot generated weekly by [GitHub Actions](.github/workflows/bench.yml) at `data/results.json`. Previous snapshots are in git history._
 

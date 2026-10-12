@@ -45,7 +45,8 @@ jobs:
           done
           wait "$pid"
           node runner/score.js
-          git add data/
+          node runner/regen_readme.js
+          git add data/ README.md
           git diff --cached --quiet || git commit -m "chore: weekly benchmark results"
           git pull --rebase origin main
           git push
