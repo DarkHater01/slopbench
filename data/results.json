@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T06:48:01.068Z",
+  "generated_at": "2026-10-13T12:38:44.852Z",
   "reps": 5,
   "qualify_threshold": 0.6,
   "tasks": {
@@ -98,7 +98,83 @@
     },
     {
       "id": "poolside/laguna-xs-2.1:free",
-      "status": "pending"
+      "status": "complete",
+      "vanilla": {
+        "per_task": {
+          "01-parse-args": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "02-dedupe-json": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "03-date-range": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "04-retry-backoff": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "05-csv-merge": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          }
+        },
+        "pass_at_1": 0,
+        "inflation": null
+      },
+      "minimal": {
+        "per_task": {
+          "01-parse-args": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "02-dedupe-json": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "03-date-range": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "04-retry-backoff": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "05-csv-merge": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          }
+        },
+        "pass_at_1": 0,
+        "inflation": null
+      },
+      "ponytail_delta": {
+        "per_task": {},
+        "overall": null
+      }
     },
     {
       "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
@@ -182,7 +258,83 @@
     },
     {
       "id": "nvidia/nemotron-3.5-lightning:free",
-      "status": "pending"
+      "status": "complete",
+      "vanilla": {
+        "per_task": {
+          "01-parse-args": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "02-dedupe-json": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "03-date-range": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "04-retry-backoff": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "05-csv-merge": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          }
+        },
+        "pass_at_1": 0,
+        "inflation": null
+      },
+      "minimal": {
+        "per_task": {
+          "01-parse-args": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "02-dedupe-json": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "03-date-range": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "04-retry-backoff": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "05-csv-merge": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          }
+        },
+        "pass_at_1": 0,
+        "inflation": null
+      },
+      "ponytail_delta": {
+        "per_task": {},
+        "overall": null
+      }
     }
   ]
 }
