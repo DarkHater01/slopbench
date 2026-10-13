@@ -8,8 +8,8 @@
   "openrouter_base": "https://openrouter.ai/api/v1",
   "models": [
     { "id": "poolside/laguna-s-2.1:free" },
-    { "id": "cohere/north-mini-code:free" },
+    { "id": "deepseek/deepseek-chat-v3-0324:free" },
     { "id": "nvidia/nemotron-3-ultra-550b-a55b:free" },
-    { "id": "google/gemma-4-31b-it:free" }
+    { "id": "meta-llama/llama-3.3-70b-instruct:free" }
   ]
 }
