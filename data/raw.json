@@ -1974,5 +1974,15 @@
     "suspicious": false,
     "loc": 27,
     "tail": "es/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/junitxml.py\", line 652, in pytest_sessionfinish\n    with open(self.logfile, \"w\", encoding=\"utf-8\") as logfile:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] Permission denied: '/job/out.xml'\n"
+  },
+  {
+    "model": "nvidia/nemotron-3.5-lightning:free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": false,
+    "error": "OpenRouter request failed for nvidia/nemotron-3.5-lightning:free: This operation was aborted",
+    "loc": 0,
+    "junit": null
   }
 ]
