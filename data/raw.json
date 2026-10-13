@@ -2354,5 +2354,15 @@
     "error": "OpenRouter request failed for nvidia/nemotron-3.5-lightning:free: OpenRouter 429 for nvidia/nemotron-3.5-lightning:free after 5 retries",
     "loc": 0,
     "junit": null
+  },
+  {
+    "model": "nvidia/nemotron-3.5-lightning:free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": false,
+    "error": "OpenRouter request failed for nvidia/nemotron-3.5-lightning:free: OpenRouter 429 for nvidia/nemotron-3.5-lightning:free after 5 retries",
+    "loc": 0,
+    "junit": null
   }
 ]
