@@ -33,9 +33,9 @@ A model that solves a 12-line task in 96 lines has inflation ≈ 8.0×. It passe
 | model | pass@1 | inflation | inflation (minimal prompt) | Δ ponytail |
 |---|---|---|---|---|
 | poolside/laguna-s-2.1:free | 1 | 1.2× | 1.1× | −1.8 LOC |
-| deepseek/deepseek-chat-v3-0324:free | _pending_ | | | |
+| poolside/laguna-xs-2.1:free | _pending_ | | | |
 | nvidia/nemotron-3-ultra-550b-a55b:free | 0 | — | — | — |
-| meta-llama/llama-3.3-70b-instruct:free | _pending_ | | | |
+| nvidia/nemotron-3.5-lightning:free | _pending_ | | | |
 <!-- LEADERBOARD:end -->
 
 _Snapshot generated weekly by [GitHub Actions](.github/workflows/bench.yml) at `data/results.json`. Previous snapshots are in git history._

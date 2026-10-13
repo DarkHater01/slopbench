@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T06:39:08.752Z",
+  "generated_at": "2026-10-13T06:48:01.068Z",
   "reps": 5,
   "qualify_threshold": 0.6,
   "tasks": {
@@ -97,7 +97,7 @@
       }
     },
     {
-      "id": "deepseek/deepseek-chat-v3-0324:free",
+      "id": "poolside/laguna-xs-2.1:free",
       "status": "pending"
     },
     {
@@ -181,7 +181,7 @@
       }
     },
     {
-      "id": "meta-llama/llama-3.3-70b-instruct:free",
+      "id": "nvidia/nemotron-3.5-lightning:free",
       "status": "pending"
     }
   ]
