@@ -1616,5 +1616,29 @@
     "suspicious": false,
     "loc": 10,
     "tail": "es/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/junitxml.py\", line 652, in pytest_sessionfinish\n    with open(self.logfile, \"w\", encoding=\"utf-8\") as logfile:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] Permission denied: '/job/out.xml'\n"
+  },
+  {
+    "model": "poolside/laguna-xs-2.1:free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": false,
+    "timed_out": false,
+    "junit": null,
+    "suspicious": false,
+    "loc": 11,
+    "tail": "es/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/junitxml.py\", line 652, in pytest_sessionfinish\n    with open(self.logfile, \"w\", encoding=\"utf-8\") as logfile:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] Permission denied: '/job/out.xml'\n"
+  },
+  {
+    "model": "poolside/laguna-xs-2.1:free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": false,
+    "timed_out": false,
+    "junit": null,
+    "suspicious": false,
+    "loc": 18,
+    "tail": "es/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/junitxml.py\", line 652, in pytest_sessionfinish\n    with open(self.logfile, \"w\", encoding=\"utf-8\") as logfile:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] Permission denied: '/job/out.xml'\n"
   }
 ]
