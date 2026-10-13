@@ -1908,5 +1908,15 @@
     "suspicious": false,
     "loc": 29,
     "tail": "es/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/junitxml.py\", line 652, in pytest_sessionfinish\n    with open(self.logfile, \"w\", encoding=\"utf-8\") as logfile:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] Permission denied: '/job/out.xml'\n"
+  },
+  {
+    "model": "poolside/laguna-xs-2.1:free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": false,
+    "error": "OpenRouter request failed for poolside/laguna-xs-2.1:free: OpenRouter 429 for poolside/laguna-xs-2.1:free after 5 retries",
+    "loc": 0,
+    "junit": null
   }
 ]
