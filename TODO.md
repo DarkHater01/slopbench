@@ -36,7 +36,14 @@ the next run: do not edit it by hand.
 
 ## C. Nothing verifies the things the README promises
 
-- [x] **No CI at all** on push/PR (only `bench.yml`), which is how A stayed broken.
+- [ ] **The README table is hand-typed and 5 days stale.** There is no
+      `<!-- LEADERBOARD:START/END -->` block at all: the rows were typed by hand,
+      while the committed `data/results.json` says `generated_at 2026-10-13` and the
+      newer `data/raw.json` was never scored. Three of the four rows are zeros that
+      only say "we did not get a result from this model". Fix: port
+      `runner/leaderboard.js` from the sibling repo and render the block, so a
+      number in the README can only come from a scored run.
+- [ ] **No CI at all** on push/PR (only `bench.yml`), which is how A stayed broken.
       Added `ci.yml` running `node runner/test_score.js` on push and pull_request.
 - [ ] **No check that the reference solution passes its own hidden tests.** The
       denominator and every task are used unvalidated (`runner/score.js:47`).
