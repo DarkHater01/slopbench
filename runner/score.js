@@ -5,9 +5,12 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = process.env.SLOPBENCH_ROOT || path.resolve(__dirname, "..");
+const CFG = process.env.SLOPBENCH_CONFIG
+  ? path.resolve(process.cwd(), process.env.SLOPBENCH_CONFIG)
+  : path.join(ROOT, "runner", "config.json");
 const RAW = process.env.SLOPBENCH_RAW || path.join(ROOT, "data", "raw.json");
 const OUT = process.env.SLOPBENCH_OUT || path.join(ROOT, "data", "results.json");
-const cfg = require(path.join(ROOT, "runner", "config.json"));
+const cfg = require(CFG);
 
 function fail(msg) {
   console.error(`score.js: ${msg}`);

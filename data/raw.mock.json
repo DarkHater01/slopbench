@@ -1,0 +1,2402 @@
+[
+  {
+    "model": "mock-lean",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "mock-lean",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 2,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 2,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 2,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 2,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 2,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 2,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 2,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 2,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 2,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 2,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "mock-bloated",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 4,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 4,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 4,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 4,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 4,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 4,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 4,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 4,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 4,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-bloated",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 4,
+    "tail": "FAILED tests/test_solution.py - assert ..."
+  },
+  {
+    "model": "mock-variable",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 34,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 34,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 34,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 34,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 34,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 4,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  },
+  {
+    "model": "mock-variable",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 5,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "tail": ""
+  }
+]

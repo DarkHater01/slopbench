@@ -126,7 +126,7 @@ function dockerRun(jobDir, timeoutS) {
     "--tmpfs", "/tmp:rw,size=64m,mode=1777",
     "--security-opt", "no-new-privileges",
     "--cap-drop", "ALL",
-    "--user", "1000:1000",
+    "--user", `${typeof process.getuid === "function" ? process.getuid() : 1000}:${typeof process.getgid === "function" ? process.getgid() : 1000}`,
     "-v", `${jobDir}:/job`,
     "-w", "/job",
     IMAGE,
