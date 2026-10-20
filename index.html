@@ -37,7 +37,7 @@ Sibling: <a href="https://darkhater01.github.io/tokentax/">TokenTax</a> measures
 const fmt = (v, unit = "") => v === null || v === undefined
   ? '<span class="null">—</span>'
   : (v < 1 ? '<span class="good">' : v > 5 ? '<span class="bad">' : v > 3 ? '<span class="warn">' : '') + v + unit + '</span>';
-fetch("data/results.json").then(r => r.json()).then(d => {
+fetch("data/results.json", { cache: "no-store" }).then(r => r.json()).then(d => {
   const rows = d.models
     .slice()
     .sort((a, b) => (b.vanilla?.pass_at_1 ?? -1) - (a.vanilla?.pass_at_1 ?? -1) || ((a.vanilla?.inflation ?? 99) - (b.vanilla?.inflation ?? 99)))
