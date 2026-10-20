@@ -58,12 +58,13 @@ the next run: do not edit it by hand.
 
 ## D. Adoption surface (the cheap stars)
 
-- [ ] **No topics and no homepage** on the GitHub repo, while `tokentax` has 7 topics.
-      Five minutes, real discovery value.
+- [x] **Homepage and topics** set: Pages serves `index.html`, the repo homepage points at it,
+      and the topics match `tokentax`'s. (2026-10-20)
 - [ ] **No `CONTRIBUTING.md`, no issue templates, no PR template.** `tokentax` has the
       same hole; a benchmark lives on outsider contributions.
-- [ ] `index.html` exists but is not linked as the repo homepage, and the README shows
-      a screenshot instead. Point Pages at it.
+- [x] `index.html` is live at <https://darkhater01.github.io/slopbench/> and linked from the
+      README. It reads `data/results.json` at load time, so it cannot drift from the weekly
+      run. (2026-10-20)
 - [ ] Adding a model is config-only but OpenRouter-only — no provider registry.
       Adopt `tokentax`'s `runner/providers.json` (base URL + key env + pacing) so
       Groq/OpenAI/Anthropic are one JSON entry each.

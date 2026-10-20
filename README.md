@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/DarkHater01/slopbench/actions/workflows/bench.yml/badge.svg)](https://github.com/DarkHater01/slopbench/actions)
 [![MIT](https://img.shields.io/github/license/DarkHater01/slopbench)](LICENSE)
+[![live leaderboard](https://img.shields.io/badge/live-leaderboard-7ec8a9)](https://darkhater01.github.io/slopbench/)
 
 **Code benchmarks measure whether a model solves the task. None measure how much code it wastes.**
 

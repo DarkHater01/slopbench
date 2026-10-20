@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SlopBench — how much code do LLMs inflate?</title>
+<meta name="description" content="SlopBench measures how much code an LLM writes beyond what the task needs. Same 5 tasks, sandboxed, reference solutions in-repo and contestable.">
+<meta property="og:title" content="SlopBench — how much code do LLMs inflate?">
+<meta property="og:description" content="Inflation = LOC generated ÷ LOC of the reference solution, counted only for runs that pass the tests.">
+<meta property="og:image" content="https://darkhater01.github.io/slopbench/docs/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   :root { color-scheme: dark; }
   body { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; margin: 2rem auto; max-width: 960px; padding: 0 1rem; color: #e6e6e6; background: #111; }
@@ -26,7 +31,8 @@
 <span class="good">inflation</span> = generated LOC ÷ reference LOC, only for runs that pass the tests (pass@1 ≥ 0.6).
 <span class="good">Δ ponytail</span> = LOC saved by the minimalism system prompt vs vanilla.</p>
 <div id="app">loading…</div>
-<footer>Reference solutions are in-repo — contest them via PR. Data regenerated weekly by GitHub Actions.</footer>
+<footer>Reference solutions are in-repo — contest them via PR. Data regenerated weekly by GitHub Actions.
+Sibling: <a href="https://darkhater01.github.io/tokentax/">TokenTax</a> measures wasted <em>tokens</em>.</footer>
 <script>
 const fmt = (v, unit = "") => v === null || v === undefined
   ? '<span class="null">—</span>'
