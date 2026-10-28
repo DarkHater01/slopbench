@@ -2649,5 +2649,138 @@
     "extra_files": [],
     "ms": 7962,
     "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 16570,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 33652,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 10226,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 8294,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 48,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 16521,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 40,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 10539,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 20672,
+    "tail": ""
   }
 ]
