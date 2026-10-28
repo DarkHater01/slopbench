@@ -2455,9 +2455,85 @@
     "task": "02-dedupe-json",
     "variant": "minimal",
     "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 20978,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 47756,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 3,
     "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
+    "error": "opencode: the agent wrote no solution.py (exit 0); last output: ```python | def dedupe(records: list, key: str) -> list: | seen = set() | return [ | r for r in records | if key in r and r[key] not in seen and not seen.add(r[key]) | ] | ```",
     "loc": 0,
     "junit": null
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 13,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 15298,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 15493,
+    "tail": ""
   }
 ]
