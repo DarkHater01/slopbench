@@ -2535,5 +2535,119 @@
     "extra_files": [],
     "ms": 15493,
     "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 28343,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 13,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 24504,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 17,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 12107,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 13,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 10676,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 13,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 16040,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 7962,
+    "tail": ""
   }
 ]
