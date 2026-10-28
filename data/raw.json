@@ -492,5 +492,140 @@
     "extra_files": [],
     "ms": 44746,
     "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 6953,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 18,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 15883,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 21,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 9344,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 21,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 12306,
+    "tail": ""
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 23,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 16190,
+    "tail": ""
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 25,
+    "harness": "opencode",
+    "extra_files": [
+      "__pycache__"
+    ],
+    "ms": 17490,
+    "tail": ""
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": false,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 3,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 19774,
+    "tail": "own argument: --out\n\nsolution.py:21: ValueError\n=========================== short test summary info ============================\nFAILED tests/test_solution.py::test_flag_true_and_option_value - ValueError: ...\nFAILED tests/test_solution.py::test_missing_value_raises - AssertionError: Re...\nFAILED tests/test_solution.py::test_last_occurrence_wins - ValueError: unknow...\n3 failed, 2 passed in 0.04s\n"
   }
 ]
