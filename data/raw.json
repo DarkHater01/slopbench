@@ -3304,9 +3304,94 @@
     "task": "05-csv-merge",
     "variant": "vanilla",
     "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 31,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 15355,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 26,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 22610,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 21,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 12066,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 22869,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 3,
     "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
-    "loc": 0,
-    "junit": null
+    "timed_out": false,
+    "junit": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 1
+    },
+    "suspicious": false,
+    "loc": 30,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 11055,
+    "tail": "ile \"/job/solution.py\", line 30\nE       ```<|end|><|start|>tool to=write<|channel|>analysis <|constrain|>xml<|message|><rfl:parameter name=\"content\">\nE       ^\nE   SyntaxError: invalid syntax\n=========================== short test summary info ============================\nERROR tests/test_solution.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.09s\n"
   }
 ]
