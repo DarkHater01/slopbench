@@ -1671,5 +1671,24 @@
     "extra_files": [],
     "ms": 87466,
     "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-lightning-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 30,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 95787,
+    "tail": ""
   }
 ]
