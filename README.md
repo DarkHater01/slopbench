@@ -33,10 +33,14 @@ A model that solves a 12-line task in 96 lines has inflation ≈ 8.0×. It passe
 <!-- LEADERBOARD:start -->
 | model | pass@1 | inflation | inflation (minimal prompt) | Δ ponytail |
 |---|---|---|---|---|
-| poolside/laguna-s-2.1:free | 1 | 1.2× | 1.1× | −1.8 LOC |
-| poolside/laguna-xs-2.1:free | 0 | — | — | — |
-| nvidia/nemotron-3-ultra-550b-a55b:free | 0 | — | — | — |
-| nvidia/nemotron-3.5-lightning:free | 0 | — | — | — |
+| deepseek-v4.1-flash-free | _pending_ | | | |
+| glm-5.3-flash-free | _pending_ | | | |
+| nemotron-3.5-lightning-free | _pending_ | | | |
+| nemotron-3.5-super-vl-free | _pending_ | | | |
+| mimo-v2.6-flash-free | _pending_ | | | |
+| beam-free | _pending_ | | | |
+| flint-40b-free | _pending_ | | | |
+| jev-1.13-free | _pending_ | | | |
 <!-- LEADERBOARD:end -->
 
 _Snapshot generated weekly by [GitHub Actions](.github/workflows/bench.yml) at `data/results.json`. Previous snapshots are in git history._
@@ -47,17 +51,34 @@ _Snapshot generated weekly by [GitHub Actions](.github/workflows/bench.yml) at `
 
 ## Models
 
-Three different things, kept apart on purpose: what OpenCode recommends, what the
-catalog says about those models, and what an adjacent benchmark scored on its own
-tasks. Only the first two are facts about the models; the third is somebody
-else's measurement and is labelled as such.
+### What this bench runs
+
+Eight ids. They are not a wish list: this is exactly what OpenCode Zen answers as
+free right now, taken from its own `GET /zen/v1/models` and filtered by `-free`.
+The CI checks the configured roster against that live list before every sweep,
+because the catalog lags and a retired id looks like a model failure. Nothing here
+is paid; the cost is a rate limit and time.
+
+| model | id | context |
+|---|---|---|
+| DeepSeek V4.1 Flash | `deepseek-v4.1-flash-free` | 200k |
+| GLM-5.3 Flash | `glm-5.3-flash-free` | 200k |
+| Nemotron 3.5 Lightning | `nemotron-3.5-lightning-free` | 262k |
+| Nemotron 3.5 Super VL | `nemotron-3.5-super-vl-free` | 1M |
+| MiMo V2.6 Flash | `mimo-v2.6-flash-free` | 200k |
+| Beam | `beam-free` | 1M |
+| Flint 40B | `flint-40b-free` | 262k |
+| Jev 1.13 | `jev-1.13-free` | — |
+
+A model that fails every task stays in the table at `0.00`: removing it would hide
+the most useful row in the dataset.
 
 ### What OpenCode recommends
 
 OpenCode's own [Models page](https://opencode.ai/docs/models/) lists six
-recommended models. There is no public data on "the most used models in
-OpenCode", so this is the honest proxy: a vendor-curated shortlist, not usage
-counts.
+recommended models. There is no public data on "the most used models in OpenCode",
+so this is the honest proxy: a vendor-curated shortlist, not usage counts. None of
+them is free, which is why the bench does not run them.
 
 | model | id | context | $/1M in–out |
 |---|---|---|---|
@@ -68,122 +89,26 @@ counts.
 | Minimax M2.1 | `minimax/MiniMax-M2.1` | 205k | 0.3 / 1.2 |
 | Gemini 3 Pro | `opencode/gemini-3-pro` | 1M | 2 / 12 |
 
-`gpt-5.1-codex` and `gemini-3-pro` only exist under the `opencode` (Zen) provider
-in the catalog — the native `openai` and `google` entries ship later Codex and
-Gemini 3.x models instead.
-
-### What this bench runs
-
-Ten models from OpenCode Zen's free tier (`*-free`), because a benchmark nobody
-can afford to re-run is a press release. Nothing here is paid; the cost is a rate
-limit. `runner/config.json`, 3 reps per task.
-
-| model | id |
-|---|---|
-| DeepSeek V4.1 Flash | `deepseek-v4.1-flash-free` |
-| GLM-5.3 Flash | `glm-5.3-flash-free` |
-| Kimi K2.5 | `kimi-k2.5-free` |
-| Laguna S 2.1 | `laguna-s-2.1-free` |
-| LongCat-2.0 | `longcat-2.0-free` |
-| MiMo V2.5 | `mimo-v2.5-free` |
-| MiniMax-M3 | `minimax-m3-free` |
-| Muse Spark 1.3 Contributor | `muse-spark-1.3-contributor-free` |
-| Nemotron 3.5 Lightning | `nemotron-3.5-lightning-free` |
-| Qwen3.6 Plus | `qwen3.6-plus-free` |
-
-A model that fails every task stays in the table at `0.00`: removing it would
-hide the most useful row in the dataset.
-
-### The adjacent roster
-
-The 20 models below are the roster an adjacent benchmark runs (see
-[Provenance](#provenance)). Names, ids and variants come from its `models.json`;
-context window, price and reasoning control come from the
-[models.dev](https://models.dev/api.json) catalog as of **2026-10-27**.
-
-| model | id | context | $/1M in–out | reasoning |
-|---|---|---|---|---|
-| DeepSeek V4 Pro (New) | `opencode-go/deepseek-v4-pro` | 1M | 0.66 / 1.98 | effort max |
-| DeepSeek V4.1 Flash | `opencode-go/deepseek-v4.1-flash` | 1M | 0.15 / 0.6 | effort max |
-| GLM-5.3 | `opencode-go/glm-5.3` | 1M | 1.4 / 4.4 | effort max |
-| GLM-5.3-Flash | `opencode-go/glm-5.3-flash` | 1M | 0.15 / 0.5 | effort max |
-| GPT-5.6 Luna | `opencode-go/gpt-5.6-luna` | 1.1M | 0.2 / 1.2 | effort max |
-| Grok 4.6 | `opencode/grok-4.6` | 500k | 2 / 6 | effort xhigh |
-| Hy4 preview | `opencode-go/hy4-preview` | 1M | 0.834 / 2.501 | effort high |
-| Kimi K2.7 Code | `opencode-go/kimi-k2.7-code` | 262k | 0.95 / 4 | toggle |
-| Kimi K3 | `opencode-go/kimi-k3` | 1M | 3 / 15 | effort max |
-| LongCat-2.0 | `opencode-go/longcat-2.0` | 1M | 0.3 / 1.2 | toggle |
-| MiMo V2.5 | `opencode-go/mimo-v2.5` | 1M | 0.14 / 0.28 | toggle |
-| MiMo V2.5 Pro | `opencode-go/mimo-v2.5-pro` | 1M | 0.435 / 0.87 | toggle |
-| MiniMax-M2.7 | `opencode-go/minimax-m2.7` | 205k | 0.3 / 1.2 | toggle |
-| MiniMax-M3 | `opencode-go/minimax-m3` | 1M | 0.3 / 1.2 | toggle |
-| Muse Spark 1.3 Contributor | `opencode-go/muse-spark-1.3-contributor` | 1M | 0.1 / 0.2 | effort xhigh |
-| Qwen3.6 Plus | `alibaba/qwen3.6-plus` | 1M | 0.5 / 3 | toggle |
-| Qwen3.7 Max | `alibaba/qwen3.7-max` | 1M | 2.5 / 7.5 | toggle |
-| Qwen3.7 Plus | `opencode-go/qwen3.7-plus` | 1M | 0.4 / 1.6 | toggle |
-| Qwen3.8 Flash | `opencode-go/qwen3.8-flash` | 1M | 0.15 / 0.47 | effort xhigh |
-| Qwen3.8 Max | `opencode-go/qwen3.8-max` | 1M | 2 / 6 | effort xhigh |
-
-Two ids moved between the reference's run and this snapshot: `qwen3.6-plus` and
-`qwen3.7-max` are no longer listed under `opencode-go`, so the vendor entry is
-used. The `alibaba-token-plan` entries report `0 / 0` cost and are not a price.
-
-### Adjacent results — not ours
-
-> The scores below belong to
-> [rldona/opencode-models-benchmarks](https://github.com/rldona/opencode-models-benchmarks),
-> a different benchmark, on a different task (an RRULE expander in TypeScript),
-> with a different metric (a weighted 0–10 rubric judged by `claude:sonnet`,
-> 19 hidden cases). **They are not SlopBench results.** No inflation figure can be
-> derived from them, and they must not be compared against the leaderboard above.
-
-| # | model | variant | score | hidden | $/task | time |
-|---|---|---|---|---|---|---|
-| 1 | DeepSeek V4.1 Flash | `max` | 9.8 | 19/19 | 0.0300 | 3m 30s |
-| 2 | Hy4 preview | `high` | 9.8 | 19/19 | 0.24 | 12m 29s |
-| 3 | GLM-5.3 | `max` | 9.8 | 19/19 | 0.58 | 15m 20s |
-| 4 | GPT-5.6 Luna | `max` | 9.6 | 19/19 | 0.0677 | 6m 12s |
-| 5 | GLM-5.3-Flash | `max` | 9.6 | 19/19 | 0.0797 | 10m 32s |
-| 6 | Qwen3.8 Flash | `xhigh` | 9.5 | 18/19 | 0.14 | 26m 02s |
-| 7 | DeepSeek V4 Pro (New) | `max` | 9.4 | 19/19 | 0.0813 | 6m 47s |
-| 8 | Grok 4.6 | `xhigh` | 9.2 | 19/19 | 0.44 | 7m 56s |
-| 9 | MiniMax-M3 | `thinking` | 9.1 | 17/19 | 0.15 | 6m 49s |
-| 10 | Kimi K2.7 Code | `default` | 8.9 | 18/19 | 0.19 | 8m 41s |
-| 11 | Kimi K3 | `max` | 8.9 | 16/19 | 0.48 | 11m 00s |
-| 12 | MiMo V2.5 | `default` | 8.7 | 16/19 | 0.0168 | 5m 11s |
-| 13 | Qwen3.7 Max | `default` | 8.6 | 17/19 | 0.46 | 4m 45s |
-| 14 | Qwen3.7 Plus | `default` | 8.5 | 17/19 | 0.14 | 7m 30s |
-| 15 | MiMo V2.5 Pro | `default` | 8.2 | 13/19 | 0.0485 | 7m 33s |
-| 16 | Muse Spark 1.3 Contributor | `xhigh` | 8.1 | 14/19 | 0.0110 | 3m 41s |
-| 17 | LongCat-2.0 | `high` | 7.9 | 17/19 | 0.11 | 20m 53s |
-| 18 | Qwen3.6 Plus | `default` | 7.3 | 13/19 | 0.18 | 4m 15s |
-| 19 | Qwen3.8 Max | `xhigh` | 6.3 | 19/19 | 0.84 | 28m 30s |
-| 20 | MiniMax-M2.7 | `default` | 5.5 | 9/19 | 0.20 | 30m 52s |
-
-Transcribed from that project's README on 2026-10-27; decimal separators
-normalised. `Qwen3.8 Max` was stopped by hand at ~70 % and scored on what it had
-produced — the original notes it with an asterisk.
-
 ### Why there is no 0–10 column here
 
-That benchmark collapses correctness, autonomy, own tests, code quality and
-robustness into one number with fixed weights. It works for ranking models on one
-task. It cannot say anything about waste, because LOC is not in the rubric: a
-9.8-scoring solution can be three times longer than the reference and still score
-9.8. SlopBench keeps `pass@1` and `inflation` as separate axes and ranks with a
-Pareto frontier, precisely so no weighting decision can hide a sloppy solution.
-See [ADR-001](docs/adr/ADR-001-metric.md).
+Other benchmarks collapse correctness, autonomy, own tests, code quality and
+robustness into one weighted number. That works for ranking models on one task. It
+cannot say anything about waste, because LOC is not in the rubric: a 9.8-scoring
+solution can be three times longer than the reference and still score 9.8.
+SlopBench keeps `pass@1` and `inflation` as separate axes and ranks with a Pareto
+frontier, so no weighting decision can hide a sloppy solution. See
+[ADR-001](docs/adr/ADR-001-metric.md).
 
 ## Provenance
 
 | data | source | taken on |
 |---|---|---|
+| free roster | `GET https://opencode.ai/zen/v1/models`, filtered by `-free` | 2026-10-28 |
 | recommended models | <https://opencode.ai/docs/models/> | 2026-10-27 |
-| context, price, reasoning | <https://models.dev/api.json> (232 providers) | 2026-10-27 |
-| 20-model roster and adjacent scores | [rldona/opencode-models-benchmarks](https://github.com/rldona/opencode-models-benchmarks) · [site](https://rldona.github.io/opencode-models-benchmarks/) | 2026-10-27 |
+| context windows | <https://models.dev/api.json> | 2026-10-27 |
 
-Catalog data is a snapshot: providers re-price and re-point ids without notice.
-Re-fetch `models.dev` before quoting a price.
+The catalog is a snapshot: providers retire ids and re-price without notice. The
+live list wins, which is why the workflow checks it.
 
 ---
 
@@ -205,7 +130,7 @@ tasks/               5 airtight Python specs (task.md) + reference/solution.py +
 runner/run.js        model × task × variant × rep → provider → Docker sandbox → data/raw.json
 runner/opencode.js   the agent harness: the real OpenCode CLI in a container with a
                      network, told to write solution.py, graded afterwards without one
-runner/providers.json  endpoints and the env var holding each key (Zen free, OpenRouter)
+runner/providers.json  endpoint and the env var holding the key (OpenCode Zen)
 runner/score.js      aggregates raw.json → data/results.json (throws on inconsistent input)
 runner/test_score.js self-test of the scorer (no API required)
 index.html           interactive leaderboard: pass@1 vs waste with a Pareto
@@ -269,9 +194,15 @@ A scheduled GitHub Action regenerates `data/` every Monday and commits it. The r
 
 ### Providers
 
-`runner/providers.json` holds the endpoints. A model id only exists at one of them, so a config can mix: `{ "id": "...", "provider": "openrouter" }` overrides the config-wide `provider`. Getting this wrong fails as a 400 that looks like a bad model, which is why `runner/test_provider.js` checks every config offline.
+`runner/providers.json` holds the endpoint and the name of the env var that carries
+the key. A model can override the config-wide `provider`, so a future paid run can
+sit next to the free one; today there is exactly one entry, OpenCode Zen, and one
+key, `OPENCODE_API_KEY`. Getting the wiring wrong fails as a 400 that reads like a
+bad model, which is why `runner/test_provider.js` checks every config offline.
 
-The live roster is OpenCode Zen's free tier (`*-free`): OpenCode absorbs the cost, so a full sweep is free but rate-limited. Without `OPENCODE_API_KEY` the weekly job skips instead of going red.
+The live roster is Zen's free tier (`*-free`): OpenCode absorbs the cost, so a full
+sweep is free but rate-limited. Without the key the weekly job skips instead of
+going red.
 
 ---
 

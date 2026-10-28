@@ -27,7 +27,7 @@ function fail(msg) {
 // providers in one roster is normal (a model id only exists at one of them), and
 // getting it wrong fails as a 400 that looks like a model failure.
 function providerOf(model) {
-  const name = model.provider || cfg.provider || "openrouter";
+  const name = model.provider || cfg.provider;
   const p = providers[name];
   if (!p) fail(`unknown provider "${name}" for ${model.id} (known: ${Object.keys(providers).join(", ")})`);
   return { name, ...p, key: String(process.env[p.keyEnv] ?? "").trim() };

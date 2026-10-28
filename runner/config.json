@@ -4,7 +4,7 @@
   "agent_timeout_seconds": 420,
   "harness": "opencode",
   "provider": "opencode-zen",
-  "note": "LIVE config. harness=opencode runs the real OpenCode CLI headless (runner/opencode.js) and grades the file it writes; the window is 7 minutes per run. Every model ends in -free: OpenCode absorbs the cost, so the sweep costs one API key and a rate limit. reps is 3 because the roster is 10: 10 * 5 tasks * 2 variants * 3 reps = 300 agent runs.",
+  "note": "LIVE config. These 8 ids are the ones OpenCode Zen answers as free right now (GET /zen/v1/models, filtered by -free): the catalog on models.dev can lag behind, so the CI step checks this list against the live one before a sweep. harness=opencode runs the real CLI headless and grades the file it writes. 8 * 5 tasks * 2 variants * 3 reps = 240 agent runs.",
   "variants": {
     "vanilla": "You are an expert Python developer. Solve the task exactly as specified.",
     "minimal": "You write the least Python that fully satisfies the spec. Standard library only. No classes, no abstractions, no comments, no error handling beyond what the spec requires, no extra features. A few clear lines beat a clever framework."
@@ -12,13 +12,11 @@
   "models": [
     { "id": "deepseek-v4.1-flash-free" },
     { "id": "glm-5.3-flash-free" },
-    { "id": "kimi-k2.5-free" },
-    { "id": "laguna-s-2.1-free" },
-    { "id": "longcat-2.0-free" },
-    { "id": "mimo-v2.5-free" },
-    { "id": "minimax-m3-free" },
-    { "id": "muse-spark-1.3-contributor-free" },
     { "id": "nemotron-3.5-lightning-free" },
-    { "id": "qwen3.6-plus-free" }
+    { "id": "nemotron-3.5-super-vl-free" },
+    { "id": "mimo-v2.6-flash-free" },
+    { "id": "beam-free" },
+    { "id": "flint-40b-free" },
+    { "id": "jev-1.13-free" }
   ]
 }

@@ -19,7 +19,7 @@ for (const file of CONFIGS) {
 
   for (const m of cfg.models) {
     if (m.fixture) continue; // fixtures never reach the network
-    const name = m.provider || cfg.provider || "openrouter";
+    const name = m.provider || cfg.provider;
     const p = providers[name];
     assert(p, `${file}: model ${m.id} names unknown provider "${name}"`);
     assert(/^https:\/\//.test(p.base), `${file}: provider "${name}" has no https base`);

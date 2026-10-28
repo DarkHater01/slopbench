@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-26T12:06:52.622Z",
-  "reps": 5,
+  "generated_at": null,
+  "reps": 3,
   "qualify_threshold": 0.6,
   "tasks": {
     "01-parse-args": 19,
@@ -11,330 +11,36 @@
   },
   "models": [
     {
-      "id": "poolside/laguna-s-2.1:free",
-      "status": "complete",
-      "vanilla": {
-        "per_task": {
-          "01-parse-args": {
-            "pass_at_1": 1,
-            "consistent": true,
-            "loc": 24,
-            "inflation": 1.26
-          },
-          "02-dedupe-json": {
-            "pass_at_1": 1,
-            "consistent": true,
-            "loc": 12,
-            "inflation": 1
-          },
-          "03-date-range": {
-            "pass_at_1": 1,
-            "consistent": true,
-            "loc": 14,
-            "inflation": 1.27
-          },
-          "04-retry-backoff": {
-            "pass_at_1": 1,
-            "consistent": true,
-            "loc": 11,
-            "inflation": 1
-          },
-          "05-csv-merge": {
-            "pass_at_1": 1,
-            "consistent": true,
-            "loc": 35,
-            "inflation": 1.46
-          }
-        },
-        "pass_at_1": 1,
-        "inflation": 1.2
-      },
-      "minimal": {
-        "per_task": {
-          "01-parse-args": {
-            "pass_at_1": 1,
-            "consistent": true,
-            "loc": 20,
-            "inflation": 1.05
-          },
-          "02-dedupe-json": {
-            "pass_at_1": 1,
-            "consistent": true,
-            "loc": 12,
-            "inflation": 1
-          },
-          "03-date-range": {
-            "pass_at_1": 1,
-            "consistent": true,
-            "loc": 13,
-            "inflation": 1.18
-          },
-          "04-retry-backoff": {
-            "pass_at_1": 1,
-            "consistent": true,
-            "loc": 11,
-            "inflation": 1
-          },
-          "05-csv-merge": {
-            "pass_at_1": 0.6,
-            "consistent": false,
-            "loc": 31,
-            "inflation": 1.29
-          }
-        },
-        "pass_at_1": 0.92,
-        "inflation": 1.1
-      },
-      "ponytail_delta": {
-        "per_task": {
-          "01-parse-args": 4,
-          "02-dedupe-json": 0,
-          "03-date-range": 1,
-          "04-retry-backoff": 0,
-          "05-csv-merge": 4
-        },
-        "overall": 1.8
-      }
+      "id": "deepseek-v4.1-flash-free",
+      "status": "pending"
     },
     {
-      "id": "poolside/laguna-xs-2.1:free",
-      "status": "complete",
-      "vanilla": {
-        "per_task": {
-          "01-parse-args": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "02-dedupe-json": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "03-date-range": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "04-retry-backoff": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "05-csv-merge": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          }
-        },
-        "pass_at_1": 0,
-        "inflation": null
-      },
-      "minimal": {
-        "per_task": {
-          "01-parse-args": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "02-dedupe-json": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "03-date-range": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "04-retry-backoff": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "05-csv-merge": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          }
-        },
-        "pass_at_1": 0,
-        "inflation": null
-      },
-      "ponytail_delta": {
-        "per_task": {},
-        "overall": null
-      }
+      "id": "glm-5.3-flash-free",
+      "status": "pending"
     },
     {
-      "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
-      "status": "complete",
-      "vanilla": {
-        "per_task": {
-          "01-parse-args": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "02-dedupe-json": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "03-date-range": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "04-retry-backoff": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "05-csv-merge": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          }
-        },
-        "pass_at_1": 0,
-        "inflation": null
-      },
-      "minimal": {
-        "per_task": {
-          "01-parse-args": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "02-dedupe-json": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "03-date-range": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "04-retry-backoff": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "05-csv-merge": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          }
-        },
-        "pass_at_1": 0,
-        "inflation": null
-      },
-      "ponytail_delta": {
-        "per_task": {},
-        "overall": null
-      }
+      "id": "nemotron-3.5-lightning-free",
+      "status": "pending"
     },
     {
-      "id": "nvidia/nemotron-3.5-lightning:free",
-      "status": "complete",
-      "vanilla": {
-        "per_task": {
-          "01-parse-args": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "02-dedupe-json": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "03-date-range": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "04-retry-backoff": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "05-csv-merge": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          }
-        },
-        "pass_at_1": 0,
-        "inflation": null
-      },
-      "minimal": {
-        "per_task": {
-          "01-parse-args": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "02-dedupe-json": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "03-date-range": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "04-retry-backoff": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          },
-          "05-csv-merge": {
-            "pass_at_1": 0,
-            "consistent": false,
-            "loc": null,
-            "inflation": null
-          }
-        },
-        "pass_at_1": 0,
-        "inflation": null
-      },
-      "ponytail_delta": {
-        "per_task": {},
-        "overall": null
-      }
+      "id": "nemotron-3.5-super-vl-free",
+      "status": "pending"
+    },
+    {
+      "id": "mimo-v2.6-flash-free",
+      "status": "pending"
+    },
+    {
+      "id": "beam-free",
+      "status": "pending"
+    },
+    {
+      "id": "flint-40b-free",
+      "status": "pending"
+    },
+    {
+      "id": "jev-1.13-free",
+      "status": "pending"
     }
   ]
 }

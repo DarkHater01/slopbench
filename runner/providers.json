@@ -1,16 +1,9 @@
 {
-  "openrouter": {
-    "name": "OpenRouter",
-    "base": "https://openrouter.ai/api/v1",
-    "keyEnv": "OPENROUTER_API_KEY",
-    "paceMs": 1000,
-    "headers": { "X-Title": "SlopBench" }
-  },
   "opencode-zen": {
     "name": "OpenCode Zen",
     "base": "https://opencode.ai/zen/v1",
     "keyEnv": "OPENCODE_API_KEY",
     "paceMs": 2000,
-    "note": "Free models are free because OpenCode absorbs the cost; the key comes from opencode.ai/auth and the models end in -free. No key means 429 FreeUsageLimitError, not an empty completion. Paced at 2s: a retry costs 60s, so spacing beats tripping the limit."
+    "note": "Free models are free because OpenCode absorbs the cost; the key comes from opencode.ai/auth and the ids end in -free. The catalog lags the live list, so the workflow checks GET /models before a sweep."
   }
 }

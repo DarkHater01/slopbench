@@ -50,13 +50,12 @@ jobs:
         env:
           MODE: ${{ inputs.mode || 'full' }}
           OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           CFG=runner/config.json
           [ "$MODE" = "smoke" ] && CFG=runner/config.smoke.json
           NAMES=$(node -e "
             const c=require('./$CFG'), p=require('./runner/providers.json');
-            const used=[...new Set(c.models.filter(m=>!m.fixture).map(m=>p[m.provider||c.provider||'openrouter'].keyEnv))];
+            const used=[...new Set(c.models.filter(m=>!m.fixture).map(m=>p[m.provider||c.provider].keyEnv))];
             console.log(used.join(' '));
           ")
           echo "config $CFG needs: $NAMES"
@@ -72,7 +71,6 @@ jobs:
         env:
           MODE: ${{ inputs.mode || 'full' }}
           OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           CFG=runner/config.json
           [ "$MODE" = "smoke" ] && CFG=runner/config.smoke.json
@@ -109,7 +107,6 @@ jobs:
         if: inputs.mode == 'smoke' && steps.key.outputs.skip != '1'
         env:
           OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           export SLOPBENCH_CONFIG=runner/config.smoke.json
           export SLOPBENCH_TASKS=01-parse-args
@@ -126,7 +123,6 @@ jobs:
         if: inputs.mode != 'smoke' && steps.key.outputs.skip != '1'
         env:
           OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           git config user.name "slopbench-bot"
           git config user.email "actions@users.noreply.github.com"
