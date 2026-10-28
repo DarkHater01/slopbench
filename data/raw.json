@@ -3450,5 +3450,44 @@
     "extra_files": [],
     "ms": 29712,
     "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 21,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 51582,
+    "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 0); last output: if i + 1 >= len(argv): | raise ValueError(f\"missing value for: {token}\") | result[name] = argv[i + 1] | i += 2 | else: | raise ValueError(f\"unknown argument: {token}\") | return result | ```",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 0); last output: elif name in flags: | values[name] = True | i += 1 | else: | raise ValueError(f\"unknown argument: {token}\") | result.update(values) | return result | ```",
+    "loc": 0,
+    "junit": null
   }
 ]
