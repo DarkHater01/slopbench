@@ -648,46 +648,6 @@
     "tail": ""
   },
   {
-    "model": "glm-5.3-flash-free",
-    "task": "05-csv-merge",
-    "variant": "vanilla",
-    "rep": 3,
-    "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
-    "loc": 0,
-    "junit": null
-  },
-  {
-    "model": "glm-5.3-flash-free",
-    "task": "05-csv-merge",
-    "variant": "minimal",
-    "rep": 1,
-    "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
-    "loc": 0,
-    "junit": null
-  },
-  {
-    "model": "glm-5.3-flash-free",
-    "task": "05-csv-merge",
-    "variant": "minimal",
-    "rep": 2,
-    "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
-    "loc": 0,
-    "junit": null
-  },
-  {
-    "model": "glm-5.3-flash-free",
-    "task": "05-csv-merge",
-    "variant": "minimal",
-    "rep": 3,
-    "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
-    "loc": 0,
-    "junit": null
-  },
-  {
     "model": "nemotron-3.5-lightning-free",
     "task": "01-parse-args",
     "variant": "vanilla",
@@ -1184,6 +1144,82 @@
     "harness": "opencode",
     "extra_files": [],
     "ms": 13509,
+    "tail": ""
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 25,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 27334,
+    "tail": ""
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 9733,
+    "tail": ""
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 23,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 9457,
+    "tail": ""
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 18019,
     "tail": ""
   }
 ]
