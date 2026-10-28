@@ -1589,5 +1589,47 @@
     "extra_files": [],
     "ms": 28888,
     "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-lightning-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 27,
+    "harness": "opencode",
+    "extra_files": [
+      "__pycache__"
+    ],
+    "ms": 26135,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-lightning-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 29,
+    "harness": "opencode",
+    "extra_files": [
+      "__pycache__"
+    ],
+    "ms": 47219,
+    "tail": ""
   }
 ]
