@@ -1538,9 +1538,56 @@
     "task": "04-retry-backoff",
     "variant": "minimal",
     "rep": 1,
-    "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
-    "loc": 0,
-    "junit": null
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 31585,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-lightning-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 30765,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-lightning-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 28888,
+    "tail": ""
   }
 ]
