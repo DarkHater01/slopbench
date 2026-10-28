@@ -14,6 +14,7 @@ const CFG_PATH = process.env.SLOPBENCH_CONFIG
 const cfg = require(CFG_PATH);
 const providers = require("./providers.json");
 const opencode = require("./opencode");
+const { quotaSpent, withoutFailed } = require("./resume");
 const HARNESS = cfg.harness || "chat"; // "chat" = one completion, "opencode" = the real CLI
 const IMAGE = "slopbench-sandbox";
 const RAW_PATH = process.env.SLOPBENCH_RAW || path.join(ROOT, "data", "raw.json");
@@ -229,13 +230,15 @@ async function main() {
   const done = new Set(raw.filter((r) => !r.error).map((r) => `${r.model}|${r.task}|${r.variant}|${r.rep}`));
   const completed = raw.length;
   console.log(`resume: ${completed} completed runs, ${cfg.models.length * tasks.length * Object.keys(cfg.variants).length * cfg.reps} total`);
-  for (const model of cfg.models) {
+  let spent = false;
+  sweep: for (const model of cfg.models) {
     for (const taskDir of tasks) {
       const taskMd = fs.readFileSync(path.join(taskDir, "task.md"), "utf8");
       for (const [variant, system] of Object.entries(cfg.variants)) {
         for (let rep = 1; rep <= cfg.reps; rep++) {
           const key = `${model.id}|${path.basename(taskDir)}|${variant}|${rep}`;
           if (done.has(key)) continue;
+          raw = withoutFailed(raw, key);
           const label = `${model.id}/${path.basename(taskDir)}/${variant}#${rep}`;
           console.log(`run: ${label}`);
           try {
@@ -305,13 +308,16 @@ async function main() {
               junit: null,
             });
             console.error(`   error: ${e.message}`);
+            spent = quotaSpent(e.message);
           }
           fs.writeFileSync(RAW_PATH, JSON.stringify(raw, null, 2));
+          if (spent) break sweep;
         }
       }
     }
   }
 
+  if (spent) console.log("stopped: the free tier quota is spent; the next sweep resumes here");
   console.log(`done: ${raw.length} runs -> ${RAW_PATH}`);
 }
 

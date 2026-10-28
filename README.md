@@ -43,7 +43,7 @@ A model that solves a 12-line task in 96 lines has inflation ≈ 8.0×. It passe
 | jev-1.13-free | _pending_ | | | |
 <!-- LEADERBOARD:end -->
 
-_Snapshot generated weekly by [GitHub Actions](.github/workflows/bench.yml) at `data/results.json`. Previous snapshots are in git history._
+_Snapshot regenerated daily by [GitHub Actions](.github/workflows/bench.yml) at `data/results.json`. Previous snapshots are in git history._
 
 ![live leaderboard](docs/screenshot.png)
 
@@ -190,7 +190,9 @@ python3 -m http.server 8000
 # → http://localhost:8000
 ```
 
-A scheduled GitHub Action regenerates `data/` every Monday and commits it. The repository stays static: no backend, no database, no accounts.
+A scheduled GitHub Action runs `data/` every day and commits it. Daily, because the
+free tier caps how many agent runs one account gets: a sweep finishes the models it
+can and the next one resumes from `data/raw.json`. The repository stays static: no backend, no database, no accounts.
 
 ### Providers
 
@@ -201,7 +203,7 @@ key, `OPENCODE_API_KEY`. Getting the wiring wrong fails as a 400 that reads like
 bad model, which is why `runner/test_provider.js` checks every config offline.
 
 The live roster is Zen's free tier (`*-free`): OpenCode absorbs the cost, so a full
-sweep is free but rate-limited. Without the key the weekly job skips instead of
+sweep is free but rate-limited. Without the key the scheduled job skips instead of
 going red.
 
 ---
@@ -241,7 +243,7 @@ Contested reference solution? Open a PR. We change the denominator if the argume
 ## Honesty
 
 - Reference LOC is a human choice. Ours are committed and contestable.
-- Free-tier models change availability weekly. Every result is a dated snapshot — see `generated_at` in `results.json`.
+- Free-tier models change availability without notice. Every result is a dated snapshot — see `generated_at` in `results.json`.
 - Token counts are **not** compared across models (different tokenizers). LOC is the only cross-model unit that means the same thing.
 - If you think a task is unfair, add a task that's fairer. The suite is designed to grow.
 

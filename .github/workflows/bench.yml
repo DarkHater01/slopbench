@@ -1,6 +1,8 @@
-name: weekly-bench
+name: daily-bench
 
-# Regenerates data/ every Monday from the free roster in runner/config.json.
+# Regenerates data/ every day from the free roster in runner/config.json.
+# Daily, not weekly: the free tier has an account-wide usage window, so one sweep
+# gets roughly one model done and the next one resumes where it stopped.
 # The provider and its key env come from runner/providers.json, so this workflow
 # never names a vendor: switching providers is a config change, not a YAML change.
 #
@@ -9,14 +11,14 @@ name: weekly-bench
 # from data/raw.json, so a throttled day costs one week, not the whole sweep.
 #
 # Manual runs: mode=smoke (1 model, 1 rep, every task, commits nothing)
-#              mode=full  (the weekly sweep)
+#              mode=full  (the full sweep)
 on:
   schedule:
-    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+    - cron: "0 6 * * *" # every day at 06:00 UTC
   workflow_dispatch:
     inputs:
       mode:
-        description: "smoke = prove the key and the sandbox (10 calls, nothing committed); full = the weekly sweep"
+        description: "smoke = prove the key and the sandbox (10 calls, nothing committed); full = the full sweep"
         type: choice
         options: [full, smoke]
         default: full
@@ -96,7 +98,7 @@ jobs:
             console.log('free ids (' + free.length + '): ' + free.join(', '));
             const missing = c.models.map((m) => m.id).filter((id) => !ids.includes(id));
             // A retired free id is a 400 that reads like a bad model. In smoke that
-            // is a hard failure (the point is to prove the roster); in the weekly
+            // is a hard failure (the point is to prove the roster); in a scheduled
             // sweep it stays a warning so one retired id does not block the rest.
             const level = process.env.MODE === 'smoke' ? 'error' : 'warning';
             for (const id of missing) console.log('::' + level + '::' + id + ' is in ' + process.argv[1] + ' but not in the provider list');
@@ -149,6 +151,6 @@ jobs:
           fi
           node runner/regen_readme.js
           git add data/ README.md
-          git diff --cached --quiet || git commit -m "chore: weekly benchmark results"
+          git diff --cached --quiet || git commit -m "chore: benchmark results"
           git pull --rebase origin main
           git push

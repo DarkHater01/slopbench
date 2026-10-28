@@ -42,7 +42,7 @@ assert(live.agent_timeout_seconds > 0, "config.json: agent_timeout_seconds must 
 const { opencodeArgs } = require("./opencode");
 const argv = opencodeArgs({
   runDir: "/tmp/oc", jobDir: "/tmp/job", provider: "slopbench",
-  modelId: "laguna-s-2.1-free", keyEnv: "OPENCODE_API_KEY", message: "hi",
+  modelId: "deepseek-v4.1-flash-free", keyEnv: "OPENCODE_API_KEY", message: "hi",
 });
 const s = argv.join(" ");
 assert(/ -e OPENCODE_API_KEY /.test(` ${s} `), "opencode argv must pass the key by env name, never by value");
@@ -50,5 +50,16 @@ assert(!s.includes("sk-"), "opencode argv must not contain a credential");
 assert(s.includes("--cap-drop ALL"), "opencode argv must drop capabilities");
 assert(s.includes("--security-opt no-new-privileges"), "opencode argv must set no-new-privileges");
 assert(s.includes("--network bridge"), "opencode argv needs the network its provider lives on");
+
+// A spent free-tier quota and a retried run are the two ways a sweep resumes; both
+// are pure, so they are checked here instead of in a 240-run CI job.
+const { quotaSpent, withoutFailed } = require("./resume");
+assert(quotaSpent("opencode: dropped: ... Error: Free usage limit reached."), "the quota message must stop the sweep");
+assert(!quotaSpent("opencode: the agent wrote no solution.py"), "an ordinary failure must not stop the sweep");
+const failed = { model: "m", task: "t", variant: "vanilla", rep: 1, error: "429" };
+const passed = { model: "m", task: "t", variant: "vanilla", rep: 1, passed: true };
+assert.strictEqual(withoutFailed([failed], "m|t|vanilla|1").length, 0, "a retried key drops its failed record");
+assert.strictEqual(withoutFailed([failed, passed], "m|t|vanilla|1").length, 1, "a retry must not leave two records for one rep");
+assert.strictEqual(withoutFailed([failed], "m|t|vanilla|2").length, 1, "another rep's failure must survive");
 
 console.log(`test_provider: PASS (${CONFIGS.length} configs, ${live.models.length} free models, ${Object.keys(providers).length} providers, agent argv hardened)`);
