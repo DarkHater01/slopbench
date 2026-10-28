@@ -3898,5 +3898,134 @@
     "extra_files": [],
     "ms": 97163,
     "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 42157,
+    "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 0); last output: matched = right_lookup.get(row[left_idx]) | if matched is not None: | for key, value in zip(right_header, matched): | if key != on: | out[key] = value | result.append(out) | return result | ```",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "jev-1.13-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 1); last output: Error: Model does not support this protocol.",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "jev-1.13-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 1); last output: Error: Model does not support this protocol.",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "jev-1.13-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 1); last output: Error: Model does not support this protocol.",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "jev-1.13-free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 1); last output: Error: Model does not support this protocol.",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "jev-1.13-free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 1); last output: Error: Model does not support this protocol.",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "jev-1.13-free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 1); last output: Error: Model does not support this protocol.",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "jev-1.13-free",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 1); last output: Error: Model does not support this protocol.",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "jev-1.13-free",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 1); last output: Error: Model does not support this protocol.",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "jev-1.13-free",
+    "task": "02-dedupe-json",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 1); last output: Error: Model does not support this protocol.",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "jev-1.13-free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 1); last output: Error: Model does not support this protocol.",
+    "loc": 0,
+    "junit": null
   }
 ]
