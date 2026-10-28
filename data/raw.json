@@ -2782,5 +2782,121 @@
     "extra_files": [],
     "ms": 20672,
     "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 22,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 25890,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 22,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 24528,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 21,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 21602,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 33,
+    "harness": "opencode",
+    "extra_files": [
+      "__pycache__"
+    ],
+    "ms": 9521,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 21,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 12261,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 25,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 11961,
+    "tail": ""
   }
 ]
