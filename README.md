@@ -34,9 +34,9 @@ A model that solves a 12-line task in 96 lines has inflation ≈ 8.0×. It passe
 | nemotron-3.5-lightning-free | 0.87 | 1.19× | 1.26× | +2 LOC |
 | nemotron-3.5-super-vl-free | 1 | 1.25× | 1.19× | −1.6 LOC |
 | mimo-v2.6-flash-free | 1 | 1.22× | 1.01× | −4.8 LOC |
-| beam-free | _1 of 26 runs were throttled; retried next sweep_ | | | |
-| flint-40b-free | _pending_ | | | |
-| jev-1.13-free | _pending_ | | | |
+| beam-free | 0.87 | 1.25× | 1.13× | −2.4 LOC |
+| flint-40b-free | 1 | 1.22× | 1.17× | −0.88 LOC |
+| jev-1.13-free | 0 | — | — | — |
 <!-- LEADERBOARD:end -->
 
 _Snapshot regenerated daily by [GitHub Actions](.github/workflows/bench.yml) at `data/results.json`. Previous snapshots are in git history._

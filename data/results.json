@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T03:49:30.812Z",
+  "generated_at": "2026-10-28T12:40:33.557Z",
   "reps": 3,
   "qualify_threshold": 0.6,
   "tasks": {
@@ -441,16 +441,254 @@
     },
     {
       "id": "beam-free",
-      "status": "in_progress",
-      "note": "1 of 26 runs were throttled; retried next sweep"
+      "status": "complete",
+      "vanilla": {
+        "per_task": {
+          "01-parse-args": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 25,
+            "inflation": 1.32
+          },
+          "02-dedupe-json": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 12,
+            "inflation": 1
+          },
+          "03-date-range": {
+            "pass_at_1": 0.67,
+            "consistent": false,
+            "loc": 19,
+            "inflation": 1.73
+          },
+          "04-retry-backoff": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 11,
+            "inflation": 1
+          },
+          "05-csv-merge": {
+            "pass_at_1": 0.67,
+            "consistent": false,
+            "loc": 28.5,
+            "inflation": 1.19
+          }
+        },
+        "pass_at_1": 0.87,
+        "inflation": 1.25
+      },
+      "minimal": {
+        "per_task": {
+          "01-parse-args": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 22,
+            "inflation": 1.16
+          },
+          "02-dedupe-json": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 12,
+            "inflation": 1
+          },
+          "03-date-range": {
+            "pass_at_1": 0.67,
+            "consistent": false,
+            "loc": 18,
+            "inflation": 1.64
+          },
+          "04-retry-backoff": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 11,
+            "inflation": 1
+          },
+          "05-csv-merge": {
+            "pass_at_1": 0.67,
+            "consistent": false,
+            "loc": 20.5,
+            "inflation": 0.85
+          }
+        },
+        "pass_at_1": 0.87,
+        "inflation": 1.13
+      },
+      "ponytail_delta": {
+        "per_task": {
+          "01-parse-args": 3,
+          "02-dedupe-json": 0,
+          "03-date-range": 1,
+          "04-retry-backoff": 0,
+          "05-csv-merge": 8
+        },
+        "overall": 2.4
+      }
     },
     {
       "id": "flint-40b-free",
-      "status": "pending"
+      "status": "complete",
+      "vanilla": {
+        "per_task": {
+          "01-parse-args": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 24,
+            "inflation": 1.26
+          },
+          "02-dedupe-json": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 12,
+            "inflation": 1
+          },
+          "03-date-range": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 18,
+            "inflation": 1.64
+          },
+          "04-retry-backoff": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 11,
+            "inflation": 1
+          },
+          "05-csv-merge": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 29,
+            "inflation": 1.21
+          }
+        },
+        "pass_at_1": 1,
+        "inflation": 1.22
+      },
+      "minimal": {
+        "per_task": {
+          "01-parse-args": {
+            "pass_at_1": 0.33,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "02-dedupe-json": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 12,
+            "inflation": 1
+          },
+          "03-date-range": {
+            "pass_at_1": 0.67,
+            "consistent": false,
+            "loc": 18,
+            "inflation": 1.64
+          },
+          "04-retry-backoff": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 11,
+            "inflation": 1
+          },
+          "05-csv-merge": {
+            "pass_at_1": 0.67,
+            "consistent": false,
+            "loc": 25.5,
+            "inflation": 1.06
+          }
+        },
+        "pass_at_1": 0.73,
+        "inflation": 1.17
+      },
+      "ponytail_delta": {
+        "per_task": {
+          "02-dedupe-json": 0,
+          "03-date-range": 0,
+          "04-retry-backoff": 0,
+          "05-csv-merge": 3.5
+        },
+        "overall": 0.88
+      }
     },
     {
       "id": "jev-1.13-free",
-      "status": "pending"
+      "status": "complete",
+      "vanilla": {
+        "per_task": {
+          "01-parse-args": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "02-dedupe-json": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "03-date-range": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "04-retry-backoff": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "05-csv-merge": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          }
+        },
+        "pass_at_1": 0,
+        "inflation": null
+      },
+      "minimal": {
+        "per_task": {
+          "01-parse-args": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "02-dedupe-json": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "03-date-range": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "04-retry-backoff": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          },
+          "05-csv-merge": {
+            "pass_at_1": 0,
+            "consistent": false,
+            "loc": null,
+            "inflation": null
+          }
+        },
+        "pass_at_1": 0,
+        "inflation": null
+      },
+      "ponytail_delta": {
+        "per_task": {},
+        "overall": null
+      }
     }
   ]
 }
