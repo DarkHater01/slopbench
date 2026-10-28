@@ -53,9 +53,13 @@ assert(s.includes("--network bridge"), "opencode argv needs the network its prov
 
 // A spent free-tier quota and a retried run are the two ways a sweep resumes; both
 // are pure, so they are checked here instead of in a 240-run CI job.
-const { quotaSpent, withoutFailed } = require("./resume");
+const { quotaSpent, retryable, withoutFailed } = require("./resume");
 assert(quotaSpent("opencode: dropped: ... Error: Free usage limit reached."), "the quota message must stop the sweep");
 assert(!quotaSpent("opencode: the agent wrote no solution.py"), "an ordinary failure must not stop the sweep");
+assert(retryable({ error: "opencode: dropped: the provider rate-limited the agent" }), "a throttle must be retried");
+assert(retryable({ error: "opencode: dropped: ... Free usage limit reached." }), "a spent quota must be retried next sweep");
+assert(!retryable({ error: "opencode: the agent wrote no solution.py (exit 0)" }), "ignoring the file instruction is a result, not an outage");
+assert(!retryable({ passed: true }), "a finished run is not retryable");
 const failed = { model: "m", task: "t", variant: "vanilla", rep: 1, error: "429" };
 const passed = { model: "m", task: "t", variant: "vanilla", rep: 1, passed: true };
 assert.strictEqual(withoutFailed([failed], "m|t|vanilla|1").length, 0, "a retried key drops its failed record");

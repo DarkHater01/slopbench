@@ -11,6 +11,7 @@ const CFG = process.env.SLOPBENCH_CONFIG
 const RAW = process.env.SLOPBENCH_RAW || path.join(ROOT, "data", "raw.json");
 const OUT = process.env.SLOPBENCH_OUT || path.join(ROOT, "data", "results.json");
 const cfg = require(CFG);
+const { retryable } = require("./resume");
 
 function fail(msg) {
   console.error(`score.js: ${msg}`);
@@ -63,44 +64,56 @@ for (const r of raw) {
   groups.get(k).push(r);
 }
 
-// every group must have cfg.reps distinct reps
-for (const [k, runs] of groups) {
-  if (runs.length !== cfg.reps) fail(`group ${k} has ${runs.length} runs, expected ${cfg.reps}`);
-  if (new Set(runs.map((r) => r.rep)).size !== cfg.reps) fail(`duplicate reps in group ${k}`);
-}
+// Strict by default (this file is the check). SLOPBENCH_PARTIAL=1 allows scoring
+// a mid-run snapshot: complete models are scored, the rest are flagged.
+const PARTIAL = !!process.env.SLOPBENCH_PARTIAL;
 
 const modelStats = {};
 for (const r of raw) {
-  const s = (modelStats[r.model] = modelStats[r.model] || { runs: 0, errors: 0, modelGroups: 0 });
+  const s = (modelStats[r.model] = modelStats[r.model] || { runs: 0, errors: 0, retries: 0, modelGroups: 0 });
   s.runs++;
   if (r.error) s.errors++;
+  // Throttled runs were never really attempted: counting them as model failures
+  // would publish a 0.00 the model did not earn.
+  if (retryable(r)) s.retries++;
 }
 for (const k of groups.keys()) modelStats[k.split("|")[0]].modelGroups++;
 const perModelGroups = taskIds.length * Object.keys(cfg.variants).length;
 
-// Strict by default (this file is the check). SLOPBENCH_PARTIAL=1 allows scoring
-// a mid-run snapshot: complete models are scored, the rest are flagged.
-const PARTIAL = !!process.env.SLOPBENCH_PARTIAL;
 const exactModels = cfg.models.length * perModelGroups;
 if (groups.size !== exactModels) {
   if (!PARTIAL) fail(`expected ${exactModels} groups, got ${groups.size}`);
   if (groups.size > exactModels) fail(`more groups than expected (${groups.size} > ${exactModels})`);
 }
 
+// Every group must have cfg.reps distinct reps. A sweep the free tier cut short can
+// end mid-group: that group is simply not scored yet, which is what in_progress
+// says. Only a full run must be complete.
+for (const [k, runs] of groups) {
+  if (new Set(runs.map((r) => r.rep)).size !== runs.length) fail(`duplicate reps in group ${k}`);
+  if (runs.length > cfg.reps) fail(`group ${k} has ${runs.length} runs, expected at most ${cfg.reps}`);
+  if (!PARTIAL && runs.length !== cfg.reps) fail(`group ${k} has ${runs.length} runs, expected ${cfg.reps}`);
+}
+
 const models = {};
 for (const r of raw) {
   models[r.model] = models[r.model] || { variants: {} };
 }
-
 for (const [model, m] of Object.entries(models)) {
   const s = modelStats[model];
   m.status = "complete";
-  if (PARTIAL && (s.errors === s.runs || s.modelGroups !== perModelGroups)) {
+  // A model with a throttled run, a group cut short, or runs still missing is not
+  // published: a throttled run was never attempted, and scoring it as a failure
+  // would put a 0.00 on the board that the model did not earn. This holds in strict
+  // mode too, because the free tier can throttle the last model of a full sweep.
+  if (s.retries || (PARTIAL && (s.errors === s.runs || s.modelGroups !== perModelGroups || s.runs !== perModelGroups * cfg.reps))) {
     m.status = s.errors === s.runs ? "blocked" : "in_progress";
     m.note =
       s.errors === s.runs
-        ? `all ${s.runs} runs failed with API errors`
-        : `partial: ${s.runs} of ${perModelGroups * cfg.reps} runs`;
+        ? `all ${s.runs} runs failed`
+        : s.retries
+          ? `${s.retries} of ${s.runs} runs were throttled; retried next sweep`
+          : `partial: ${s.runs} of ${perModelGroups * cfg.reps} runs`;
     continue;
   }
   for (const variant of Object.keys(cfg.variants)) {

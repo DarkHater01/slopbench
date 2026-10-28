@@ -14,7 +14,7 @@ const CFG_PATH = process.env.SLOPBENCH_CONFIG
 const cfg = require(CFG_PATH);
 const providers = require("./providers.json");
 const opencode = require("./opencode");
-const { quotaSpent, withoutFailed } = require("./resume");
+const { quotaSpent, retryable, withoutFailed } = require("./resume");
 const HARNESS = cfg.harness || "chat"; // "chat" = one completion, "opencode" = the real CLI
 const IMAGE = "slopbench-sandbox";
 const RAW_PATH = process.env.SLOPBENCH_RAW || path.join(ROOT, "data", "raw.json");
@@ -227,9 +227,10 @@ async function main() {
       /* corrupt partial file — start over */
     }
   }
-  const done = new Set(raw.filter((r) => !r.error).map((r) => `${r.model}|${r.task}|${r.variant}|${r.rep}`));
-  const completed = raw.length;
-  console.log(`resume: ${completed} completed runs, ${cfg.models.length * tasks.length * Object.keys(cfg.variants).length * cfg.reps} total`);
+  // Finished = it produced a result, or it failed in a way retrying cannot fix.
+  const done = new Set(raw.filter((r) => !retryable(r)).map((r) => `${r.model}|${r.task}|${r.variant}|${r.rep}`));
+  const total = cfg.models.length * tasks.length * Object.keys(cfg.variants).length * cfg.reps;
+  console.log(`resume: ${done.size} of ${total} runs finished (${raw.length} records)`);
   let spent = false;
   sweep: for (const model of cfg.models) {
     for (const taskDir of tasks) {
