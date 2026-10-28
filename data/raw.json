@@ -3641,5 +3641,167 @@
     "extra_files": [],
     "ms": 29514,
     "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 18,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 14827,
+    "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 18,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 18628,
+    "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 0); last output: raise ValueError(\"end before start\") | out = [] | cur = start_d | while cur <= end_d: | out.append(cur.isoformat()) | cur += timedelta(days=1) | return out | ```",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 18,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 15133,
+    "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 11853,
+    "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 13,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 6308,
+    "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 8727,
+    "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 10855,
+    "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 10364,
+    "tail": ""
   }
 ]
