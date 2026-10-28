@@ -252,9 +252,15 @@ function renderBars() {
   const label = (m) => `<div class="bname" title="${esc(m.id)}">${esc(name(m.id))}</div>`;
 
   $("bars").innerHTML = rows.map((m) => {
-    if (m.status !== "complete" || m.vanilla?.inflation == null)
+    if (m.status !== "complete")
       return `<div class="brow pending">${label(m)}
         <div class="btrack">${esc(m.note || m.status)}</div><div class="bpass">—</div></div>`;
+    // Scored, but no task cleared the pass threshold: a 0.00 is a result and the
+    // row must say so, not hide behind "complete".
+    if (m.vanilla?.inflation == null)
+      return `<div class="brow pending">${label(m)}
+        <div class="btrack">no task reached pass@1 ${f1(DATA.qualify_threshold)} — no lines counted</div>
+        <div class="bpass bad">${f1(m.vanilla?.pass_at_1)}</div></div>`;
     return `<div class="brow">${label(m)}
       <div class="btrack">
         ${bar("vanilla", m.vanilla.inflation)}${bar("minimal", m.minimal?.inflation)}
