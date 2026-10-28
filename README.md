@@ -93,8 +93,8 @@ Other benchmarks collapse correctness, autonomy, own tests, code quality and
 robustness into one weighted number. That works for ranking models on one task. It
 cannot say anything about waste, because LOC is not in the rubric: a 9.8-scoring
 solution can be three times longer than the reference and still score 9.8.
-SlopBench keeps `pass@1` and `inflation` as separate axes and ranks with a Pareto
-frontier, so no weighting decision can hide a sloppy solution. See
+SlopBench keeps `pass@1` and `inflation` as separate numbers and never folds them
+into one score, so no weighting decision can hide a sloppy solution. See
 [ADR-001](docs/adr/ADR-001-metric.md).
 
 ## Provenance
@@ -131,10 +131,10 @@ runner/opencode.js   the agent harness: the real OpenCode CLI in a container wit
 runner/providers.json  endpoint and the env var holding the key (OpenCode Zen)
 runner/score.js      aggregates raw.json → data/results.json (throws on inconsistent input)
 runner/test_score.js self-test of the scorer (no API required)
-index.html           interactive leaderboard: pass@1 vs waste with a Pareto
-                     frontier, sortable table, per-task breakdown and a dated
-                     model catalog. Reads data/results.json at load time.
-                     No backend, no framework.
+index.html           interactive leaderboard: one bar per model for lines written
+                     (with and without the minimal prompt), sortable table,
+                     per-task breakdown and a dated model catalog. Reads
+                     data/results.json at load time. No backend, no framework.
 ```
 
 **Two harnesses, one metric.** `harness: "chat"` is a single completion; `harness:
