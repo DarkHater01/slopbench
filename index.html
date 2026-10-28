@@ -83,6 +83,8 @@
   svg .lbl { fill: var(--ink-2); font-size: 11px; }
   svg .frontier { stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; opacity: .8; }
   .note { margin: .7rem 0 0; color: var(--muted); font-size: .8rem; }
+  .note.warn { color: var(--warning); }
+  .note a { color: var(--ink-2); }
   .tip {
     position: fixed; z-index: 10; pointer-events: none; opacity: 0; transition: opacity .1s;
     background: var(--surface); color: var(--ink); border: 1px solid var(--hair);
@@ -104,7 +106,7 @@
   thead th button[data-active]::after { content: " ▾"; color: var(--accent); }
   tbody tr:hover { background: var(--accent-wash); }
   td.num, th.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
-  .mono { font-family: var(--mono); font-size: .82rem; }
+  .mono { font-family: var(--mono); font-size: .82rem; text-align: left; }
   .good { color: var(--good); } .warn { color: var(--warning); } .bad { color: var(--critical); }
   .null { color: var(--muted); }
   .pill {
@@ -162,6 +164,18 @@
     <h2>Per task</h2>
     <p class="sub">Pass@1 and inflation for each of the 5 tasks; the reference LOC is the denominator.</p>
     <div class="table-scroll"><table id="tasks"></table></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>Models</h2>
+        <p class="sub">Catalog facts, not scores. Nothing here is a SlopBench result unless the leaderboard above says so.</p>
+      </div>
+      <div class="seg" id="msel" role="group" aria-label="Model list"></div>
+    </div>
+    <div class="table-scroll"><table id="mtbl"></table></div>
+    <p class="note" id="mnote"></p>
   </section>
 
   <footer>
@@ -389,6 +403,101 @@ function renderTasks() {
     }).join("")}</tr>`).join("")}</tbody>`;
 }
 
+// ---------- models: catalog + adjacent benchmark ----------
+// Static reference data, dated. The roster and its scores come from another
+// benchmark (rldona/opencode-models-benchmarks); they are shown for context and
+// are never merged into the leaderboard, because a 0-10 rubric score against a
+// different task says nothing about inflation.
+const CAT = {
+  taken: "2026-10-27",
+  recommended: [
+    ["GPT 5.2", "openai/gpt-5.2", "400k", "1.75 / 14"],
+    ["GPT 5.1 Codex", "opencode/gpt-5.1-codex", "400k", "1.07 / 8.5"],
+    ["Claude Opus 4.5", "anthropic/claude-opus-4-5", "200k", "5 / 25"],
+    ["Claude Sonnet 4.5", "anthropic/claude-sonnet-4-5", "200k", "3 / 15"],
+    ["Minimax M2.1", "minimax/MiniMax-M2.1", "205k", "0.3 / 1.2"],
+    ["Gemini 3 Pro", "opencode/gemini-3-pro", "1M", "2 / 12"],
+  ],
+  roster: [
+    ["DeepSeek V4 Pro (New)", "opencode-go/deepseek-v4-pro", "1M", "0.66 / 1.98", "effort max"],
+    ["DeepSeek V4.1 Flash", "opencode-go/deepseek-v4.1-flash", "1M", "0.15 / 0.6", "effort max"],
+    ["GLM-5.3", "opencode-go/glm-5.3", "1M", "1.4 / 4.4", "effort max"],
+    ["GLM-5.3-Flash", "opencode-go/glm-5.3-flash", "1M", "0.15 / 0.5", "effort max"],
+    ["GPT-5.6 Luna", "opencode-go/gpt-5.6-luna", "1.1M", "0.2 / 1.2", "effort max"],
+    ["Grok 4.6", "opencode/grok-4.6", "500k", "2 / 6", "effort xhigh"],
+    ["Hy4 preview", "opencode-go/hy4-preview", "1M", "0.834 / 2.501", "effort high"],
+    ["Kimi K2.7 Code", "opencode-go/kimi-k2.7-code", "262k", "0.95 / 4", "toggle"],
+    ["Kimi K3", "opencode-go/kimi-k3", "1M", "3 / 15", "effort max"],
+    ["LongCat-2.0", "opencode-go/longcat-2.0", "1M", "0.3 / 1.2", "toggle"],
+    ["MiMo V2.5", "opencode-go/mimo-v2.5", "1M", "0.14 / 0.28", "toggle"],
+    ["MiMo V2.5 Pro", "opencode-go/mimo-v2.5-pro", "1M", "0.435 / 0.87", "toggle"],
+    ["MiniMax-M2.7", "opencode-go/minimax-m2.7", "205k", "0.3 / 1.2", "toggle"],
+    ["MiniMax-M3", "opencode-go/minimax-m3", "1M", "0.3 / 1.2", "toggle"],
+    ["Muse Spark 1.3 Contributor", "opencode-go/muse-spark-1.3-contributor", "1M", "0.1 / 0.2", "effort xhigh"],
+    ["Qwen3.6 Plus", "alibaba/qwen3.6-plus", "1M", "0.5 / 3", "toggle"],
+    ["Qwen3.7 Max", "alibaba/qwen3.7-max", "1M", "2.5 / 7.5", "toggle"],
+    ["Qwen3.7 Plus", "opencode-go/qwen3.7-plus", "1M", "0.4 / 1.6", "toggle"],
+    ["Qwen3.8 Flash", "opencode-go/qwen3.8-flash", "1M", "0.15 / 0.47", "effort xhigh"],
+    ["Qwen3.8 Max", "opencode-go/qwen3.8-max", "1M", "2 / 6", "effort xhigh"],
+  ],
+  adjacent: [
+    ["DeepSeek V4.1 Flash", "max", 9.8, "19/19", "0.0300", "3m 30s"],
+    ["Hy4 preview", "high", 9.8, "19/19", "0.24", "12m 29s"],
+    ["GLM-5.3", "max", 9.8, "19/19", "0.58", "15m 20s"],
+    ["GPT-5.6 Luna", "max", 9.6, "19/19", "0.0677", "6m 12s"],
+    ["GLM-5.3-Flash", "max", 9.6, "19/19", "0.0797", "10m 32s"],
+    ["Qwen3.8 Flash", "xhigh", 9.5, "18/19", "0.14", "26m 02s"],
+    ["DeepSeek V4 Pro (New)", "max", 9.4, "19/19", "0.0813", "6m 47s"],
+    ["Grok 4.6", "xhigh", 9.2, "19/19", "0.44", "7m 56s"],
+    ["MiniMax-M3", "thinking", 9.1, "17/19", "0.15", "6m 49s"],
+    ["Kimi K2.7 Code", "default", 8.9, "18/19", "0.19", "8m 41s"],
+    ["Kimi K3", "max", 8.9, "16/19", "0.48", "11m 00s"],
+    ["MiMo V2.5", "default", 8.7, "16/19", "0.0168", "5m 11s"],
+    ["Qwen3.7 Max", "default", 8.6, "17/19", "0.46", "4m 45s"],
+    ["Qwen3.7 Plus", "default", 8.5, "17/19", "0.14", "7m 30s"],
+    ["MiMo V2.5 Pro", "default", 8.2, "13/19", "0.0485", "7m 33s"],
+    ["Muse Spark 1.3 Contributor", "xhigh", 8.1, "14/19", "0.0110", "3m 41s"],
+    ["LongCat-2.0", "high", 7.9, "17/19", "0.11", "20m 53s"],
+    ["Qwen3.6 Plus", "default", 7.3, "13/19", "0.18", "4m 15s"],
+    ["Qwen3.8 Max", "xhigh", 6.3, "19/19", "0.84", "28m 30s"],
+    ["MiniMax-M2.7", "default", 5.5, "9/19", "0.20", "30m 52s"],
+  ],
+};
+
+const MVIEWS = {
+  recommended: {
+    label: "OpenCode picks",
+    head: ["model", "id", "context", "$/1M in–out"],
+    row: (r) => r,
+    note: () => `Six models from OpenCode's own <a href="https://opencode.ai/docs/models/">Models page</a>. There is no public usage data for OpenCode, so this is a vendor shortlist, not a popularity count.`,
+  },
+  roster: {
+    label: "Roster",
+    head: ["model", "id", "context", "$/1M in–out", "reasoning"],
+    row: (r) => r,
+    note: () => `The 20 models an adjacent benchmark runs. Context, price and reasoning control from <a href="https://models.dev/api.json">models.dev</a>, ${CAT.taken}. Prices are a snapshot — providers re-price without notice.`,
+  },
+  adjacent: {
+    label: "Adjacent results",
+    head: ["model", "variant", "score 0–10", "hidden", "$/task", "time"],
+    row: (r) => r,
+    warn: true,
+    note: () => `<b>Not SlopBench results.</b> A weighted 0–10 rubric from <a href="https://rldona.github.io/opencode-models-benchmarks/">another benchmark</a>, on an RRULE expander in TypeScript, judged by claude:sonnet. LOC is not in that rubric, so these scores say nothing about inflation.`,
+  },
+};
+let mview = "recommended";
+
+function renderModels() {
+  const v = MVIEWS[mview];
+  const rows = CAT[mview];
+  $("mtbl").innerHTML = `
+    <thead><tr>${v.head.map((h, i) => `<th class="${i === 1 ? "mono" : i > 1 ? "num" : ""}">${esc(h)}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map((r) => `<tr>${v.row(r).map((c, i) =>
+      `<td class="${i === 1 ? "mono" : i > 1 ? "num" : ""}">${i === 1 ? `<code>${esc(c)}</code>` : esc(c)}</td>`).join("")}</tr>`).join("")}</tbody>`;
+  $("mnote").className = "note" + (v.warn ? " warn" : "");
+  $("mnote").innerHTML = v.note();
+}
+
 // ---------- boot ----------
 fetch("data/results.json", { cache: "no-store" }).then((r) => {
   if (!r.ok) throw new Error(r.status);
@@ -411,6 +520,17 @@ fetch("data/results.json", { cache: "no-store" }).then((r) => {
   $("hl").innerHTML = `<div class="empty">Could not load <code>data/results.json</code>.
     Serve this directory over HTTP (<code>python3 -m http.server</code>) — opening the file directly is blocked by the browser.</div>`;
 });
+
+// The catalog is reference data, not benchmark output: it renders even if
+// results.json fails, so the page still explains what it is measuring.
+$("msel").innerHTML = Object.entries(MVIEWS).map(([k, v]) =>
+  `<button data-k="${k}" aria-pressed="${k === mview}">${v.label}</button>`).join("");
+$("msel").querySelectorAll("button").forEach((b) => b.addEventListener("click", () => {
+  mview = b.dataset.k;
+  $("msel").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(x.dataset.k === mview)));
+  renderModels();
+}));
+renderModels();
 </script>
 </body>
 </html>
