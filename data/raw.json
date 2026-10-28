@@ -3288,5 +3288,25 @@
     "extra_files": [],
     "ms": 5367,
     "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 0); last output: $ ls -la /job && python3 --version | total 8 | drwxr-xr-x 2 1001 1001 4096 Oct 28 03:47 . | drwxr-xr-x 1 root root 4096 Oct 28 03:47 .. | Python 3.12.16 | $ python3 -c \"import io,csv; t='a,b\\r\\n1,2\\r\\n'; r=csv.reader(io.StringIO(t,newline='')); print(list(r))\" | [['a', 'b'], ['1', '2']]",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "beam-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": false,
+    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
+    "loc": 0,
+    "junit": null
   }
 ]
