@@ -2038,5 +2038,159 @@
     "extra_files": [],
     "ms": 9847,
     "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 18,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 9480,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 11639,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 7401,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 8867,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 8542,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 9197,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 8895,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 33,
+    "harness": "opencode",
+    "extra_files": [
+      "__pycache__"
+    ],
+    "ms": 27007,
+    "tail": ""
   }
 ]
