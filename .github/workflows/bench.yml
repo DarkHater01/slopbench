@@ -94,9 +94,15 @@ jobs:
               console.log('::warning::could not parse the model list: ' + body.slice(0, 200)); process.exit(0);
             }
             console.log(prov.name + ' lists ' + ids.length + ' models');
+            const free = ids.filter((id) => /free$/.test(id));
+            console.log('free ids (' + free.length + '): ' + free.join(', '));
             const missing = c.models.map((m) => m.id).filter((id) => !ids.includes(id));
-            // A retired free id is a 400 that reads like a bad model; say it here instead.
-            for (const id of missing) console.log('::warning::' + id + ' is in ' + process.argv[1] + ' but not in the provider list');
+            // A retired free id is a 400 that reads like a bad model. In smoke that
+            // is a hard failure (the point is to prove the roster); in the weekly
+            // sweep it stays a warning so one retired id does not block the rest.
+            const level = process.env.MODE === 'smoke' ? 'error' : 'warning';
+            for (const id of missing) console.log('::' + level + '::' + id + ' is in ' + process.argv[1] + ' but not in the provider list');
+            if (process.env.MODE === 'smoke' && missing.length) process.exit(1);
           " "$CFG"
 
       - name: Smoke run (nothing committed)
