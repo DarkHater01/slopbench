@@ -10,56 +10,407 @@
 <meta property="og:image" content="https://darkhater01.github.io/slopbench/docs/social-preview.png">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-  :root { color-scheme: dark; }
-  body { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; margin: 2rem auto; max-width: 960px; padding: 0 1rem; color: #e6e6e6; background: #111; }
-  h1 { font-size: 1.4rem; } h1 span { color: #7ec8a9; }
-  p.sub { color: #999; }
-  table { border-collapse: collapse; width: 100%; margin-top: 1.5rem; font-size: .9rem; }
-  th, td { padding: .5rem .6rem; border-bottom: 1px solid #333; text-align: right; }
+  :root {
+    color-scheme: light;
+    --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e;
+    --muted: #898781; --grid: #e1e0d9; --axis: #c3c2b7; --hair: rgba(11, 11, 11, .1);
+    --accent: #0f7a5a; --accent-wash: rgba(15, 122, 90, .1);
+    --good: #0ca30c; --warning: #b07a00; --critical: #d03b3b;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    --radius: 10px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7;
+      --muted: #898781; --grid: #2c2c2a; --axis: #383835; --hair: rgba(255, 255, 255, .1);
+      --accent: #3fbf94; --accent-wash: rgba(63, 191, 148, .14);
+      --good: #2ec22e; --warning: #d8a13a; --critical: #e05a5a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 2.5rem 1rem 4rem; background: var(--page); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  .eyebrow {
+    margin: 0 0 .5rem; color: var(--accent); font: 500 .72rem/1 var(--mono);
+    letter-spacing: .12em; text-transform: uppercase;
+  }
+  h1 { margin: 0; font-size: clamp(2rem, 5vw, 2.9rem); line-height: 1.05; letter-spacing: -.02em; }
+  h1 span { color: var(--accent); }
+  .lede { max-width: 68ch; margin: .9rem 0 0; color: var(--ink-2); font-size: 1.02rem; }
+  .meta { margin: 1rem 0 0; color: var(--muted); font: .8rem/1.5 var(--mono); }
+  .meta b { color: var(--ink-2); font-weight: 500; }
+  .links { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin: 1.1rem 0 0; font-size: .86rem; }
+  .links a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--hair); }
+  .links a:hover { color: var(--accent); border-color: var(--accent); }
+
+  .hl { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .75rem; margin: 2rem 0 1rem; }
+  .hl-card {
+    background: var(--surface); border: 1px solid var(--hair); border-radius: var(--radius);
+    padding: .85rem 1rem;
+  }
+  .hl-card .k { color: var(--muted); font: 500 .68rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+  .hl-card .v { margin-top: .35rem; font: 600 1.5rem/1.1 var(--mono); font-variant-numeric: tabular-nums; }
+  .hl-card .s { margin-top: .2rem; color: var(--ink-2); font-size: .8rem; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--hair); border-radius: var(--radius);
+    padding: 1.1rem 1.15rem 1.2rem; margin: 1rem 0;
+  }
+  .card-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .6rem; }
+  h2 { margin: 0; font-size: 1.05rem; letter-spacing: -.01em; }
+  .sub { margin: .25rem 0 0; color: var(--muted); font-size: .82rem; }
+  .seg { display: inline-flex; background: var(--page); border: 1px solid var(--hair); border-radius: 8px; padding: 2px; }
+  .seg button {
+    appearance: none; border: 0; background: transparent; color: var(--ink-2); cursor: pointer;
+    font: 500 .76rem/1 var(--mono); padding: .42rem .6rem; border-radius: 6px;
+  }
+  .seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px var(--hair); }
+  .seg button:hover { color: var(--accent); }
+
+  svg#chart { display: block; width: 100%; height: auto; margin-top: .6rem; overflow: visible; }
+  svg text { font-family: var(--mono); fill: var(--muted); font-size: 11px; }
+  svg .axis-line { stroke: var(--axis); stroke-width: 1; }
+  svg .grid-line { stroke: var(--grid); stroke-width: 1; stroke-dasharray: 2 3; }
+  svg .pt { fill: var(--accent); stroke: var(--surface); stroke-width: 2; cursor: pointer; }
+  svg .pt.dim { fill: var(--muted); opacity: .45; }
+  svg .pt:hover, svg .pt:focus { fill: var(--ink); outline: none; }
+  svg .lbl { fill: var(--ink-2); font-size: 11px; }
+  svg .frontier { stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; opacity: .8; }
+  .note { margin: .7rem 0 0; color: var(--muted); font-size: .8rem; }
+  .tip {
+    position: fixed; z-index: 10; pointer-events: none; opacity: 0; transition: opacity .1s;
+    background: var(--surface); color: var(--ink); border: 1px solid var(--hair);
+    border-radius: 8px; padding: .55rem .7rem; font: .78rem/1.45 var(--mono);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .12); max-width: 260px;
+  }
+  .tip b { color: var(--accent); font-weight: 600; }
+
+  .table-scroll { overflow-x: auto; margin-top: .7rem; }
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  th, td { padding: .55rem .6rem; border-bottom: 1px solid var(--grid); text-align: right; white-space: nowrap; }
   th:first-child, td:first-child { text-align: left; }
-  th { color: #888; font-weight: 600; text-transform: uppercase; font-size: .72rem; letter-spacing: .05em; }
-  tr:hover { background: #1b1b1b; }
-  .good { color: #7ec8a9; } .bad { color: #e07a7a; } .warn { color: #d8b45a; }
-  .null { color: #555; }
-  footer { margin-top: 2rem; color: #666; font-size: .8rem; }
-  a { color: #7ec8a9; }
+  thead th {
+    position: sticky; top: 0; background: var(--surface); color: var(--muted);
+    font: 500 .68rem/1 var(--mono); letter-spacing: .07em; text-transform: uppercase; white-space: nowrap;
+  }
+  thead th button { all: unset; cursor: pointer; color: inherit; font: inherit; }
+  thead th button:hover { color: var(--accent); }
+  thead th button[data-active]::after { content: " ▾"; color: var(--accent); }
+  tbody tr:hover { background: var(--accent-wash); }
+  td.num, th.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .mono { font-family: var(--mono); font-size: .82rem; }
+  .good { color: var(--good); } .warn { color: var(--warning); } .bad { color: var(--critical); }
+  .null { color: var(--muted); }
+  .pill {
+    display: inline-block; padding: .05rem .4rem; border: 1px solid var(--hair);
+    border-radius: 999px; color: var(--muted); font: .7rem/1.5 var(--mono);
+  }
+  .cells { font-family: var(--mono); font-size: .78rem; }
+  .cells .t { display: inline-block; min-width: 4.2rem; }
+  footer { margin: 2.4rem 0 0; padding-top: 1rem; border-top: 1px solid var(--hair); color: var(--muted); font-size: .8rem; }
+  footer a { color: var(--ink-2); }
+  .empty { padding: 2rem 0; color: var(--muted); text-align: center; }
+  @media (max-width: 640px) { body { padding: 1.6rem .8rem 3rem; } .hl { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
-<h1>🪢 <span>SlopBench</span> — how much code do LLMs inflate?</h1>
-<p class="sub">Each model solves the same 5 Python tasks inside a sandbox (no network, non-root).
-<span class="good">inflation</span> = generated LOC ÷ reference LOC, only for runs that pass the tests (pass@1 ≥ 0.6).
-<span class="good">Δ ponytail</span> = LOC saved by the minimalism system prompt vs vanilla.</p>
-<div id="app">loading…</div>
-<footer>Reference solutions are in-repo — contest them via PR. Data regenerated weekly by GitHub Actions.
-Sibling: <a href="https://darkhater01.github.io/tokentax/">TokenTax</a> measures wasted <em>tokens</em>.</footer>
+<div class="wrap">
+  <p class="eyebrow">Open-source benchmark · code inflation in LLM agents</p>
+  <h1>🪢 Slop<span>Bench</span></h1>
+  <p class="lede">
+    Code benchmarks measure whether a model solves the task. None measure <strong>how much code it wastes</strong>.
+    Every model solves the same 5 Python tasks inside a sandbox, and the metric only counts runs that pass the tests:
+    <span class="mono">inflation = generated LOC ÷ reference LOC</span>.
+  </p>
+  <p class="meta" id="meta">loading…</p>
+  <nav class="links">
+    <a href="https://github.com/DarkHater01/slopbench">Repository</a>
+    <a href="https://github.com/DarkHater01/slopbench/blob/main/docs/adr/ADR-001-metric.md">How the metric works</a>
+    <a href="https://github.com/DarkHater01/slopbench/tree/main/tasks">The 5 tasks</a>
+    <a href="https://github.com/DarkHater01/slopbench/blob/main/data/results.json">Raw data</a>
+  </nav>
+
+  <section class="hl" id="hl" aria-label="Highlights"></section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>Pass@1 against waste</h2>
+        <p class="sub">Up is better, left is leaner. The dashed line is the Pareto frontier: no model on it can be beaten on both axes at once.</p>
+      </div>
+      <div class="seg" id="xsel" role="group" aria-label="Waste axis"></div>
+    </div>
+    <svg id="chart" viewBox="0 0 960 520" role="img" aria-labelledby="chart-title">
+      <title id="chart-title">Pass@1 against code inflation, per model</title>
+    </svg>
+    <div class="tip" id="tip" role="tooltip"></div>
+  </section>
+
+  <section class="card">
+    <h2>Leaderboard</h2>
+    <p class="sub">Click a column to sort. Inflation is only counted for runs that pass the tests.</p>
+    <div class="table-scroll"><table id="tbl"></table></div>
+  </section>
+
+  <section class="card">
+    <h2>Per task</h2>
+    <p class="sub">Pass@1 and inflation for each of the 5 tasks; the reference LOC is the denominator.</p>
+    <div class="table-scroll"><table id="tasks"></table></div>
+  </section>
+
+  <footer>
+    <p>
+      Reference solutions are in-repo, hand-written and <strong>contestable via PR</strong> — the denominator is public on purpose.
+      Data regenerated weekly by GitHub Actions from committed raw runs; this page reads
+      <a href="https://github.com/DarkHater01/slopbench/blob/main/data/results.json">data/results.json</a> and has no backend.
+    </p>
+    <p>Sibling: <a href="https://darkhater01.github.io/tokentax/">TokenTax</a> measures wasted <em>tokens</em>.</p>
+  </footer>
+</div>
+
 <script>
-const fmt = (v, unit = "") => v === null || v === undefined
-  ? '<span class="null">—</span>'
-  : (v < 1 ? '<span class="good">' : v > 5 ? '<span class="bad">' : v > 3 ? '<span class="warn">' : '') + v + unit + '</span>';
-fetch("data/results.json", { cache: "no-store" }).then(r => r.json()).then(d => {
-  const rows = d.models
-    .slice()
-    .sort((a, b) => (b.vanilla?.pass_at_1 ?? -1) - (a.vanilla?.pass_at_1 ?? -1) || ((a.vanilla?.inflation ?? 99) - (b.vanilla?.inflation ?? 99)))
-    .map(m => m.status === "complete" ? `<tr>
-      <td>${m.id}</td>
-      <td>${fmt(m.vanilla.pass_at_1)}</td>
-      <td>${fmt(m.vanilla.inflation, "×")}</td>
-      <td>${fmt(m.minimal.inflation, "×")}</td>
-      <td>${fmt(m.ponytail_delta?.overall, " LOC")}</td>
-    </tr>` : `<tr>
-      <td>${m.id} <span class="warn">(${m.status})</span></td>
-      <td colspan="4" class="null">${m.note || "queued"}</td>
-    </tr>`).join("");
-  document.getElementById("app").innerHTML = `
-    <table>
-      <thead><tr>
-        <th>model</th><th>pass@1</th><th>inflation (vanilla)</th><th>inflation (minimal prompt)</th><th>Δ ponytail</th>
-      </tr></thead>
-      <tbody>${rows}</tbody>
-    </table>
-    <p class="sub">tasks: ${Object.entries(d.tasks).map(([t, l]) => `${t} (ref ${l} LOC)`).join(" · ")} · reps: ${d.reps} · generated ${d.generated_at}</p>`;
-}).catch(e => document.getElementById("app").textContent = "failed to load data/results.json — serve this dir over HTTP (python3 -m http.server)");
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const f1 = (v) => (v == null ? "—" : Number(v).toFixed(2));
+const fx = (v) => (v == null ? "—" : Number(v).toFixed(2) + "×");
+
+const XS = {
+  inflation: { label: "inflation", axis: "inflation (vanilla) →", get: (m) => m.vanilla?.inflation },
+  minimal: { label: "minimal", axis: "inflation with the minimal prompt →", get: (m) => m.minimal?.inflation },
+  loc: { label: "LOC", axis: "generated lines per task →", get: (m) => avgLoc(m) },
+};
+let metric = "inflation";
+let sortKey = "pass", sortAsc = false;
+let DATA = null;
+let MODEL = [];
+
+const prov = (id) => (id.includes("/") ? id.slice(0, id.indexOf("/")) : "—");
+const name = (id) => id.split("/").pop().replace(":free", "");
+const num = (v) => (v == null ? Infinity : v);
+const cls = (v, lo, hi) => (v == null ? "null" : v >= hi ? "bad" : v >= lo ? "warn" : "good");
+
+function avgLoc(m) {
+  const xs = Object.values(m.vanilla?.per_task || {}).map((t) => t.loc).filter((v) => v != null);
+  return xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : null;
+}
+
+function completeModels() {
+  return DATA.models.filter((m) => m.status === "complete" && m.vanilla?.inflation != null);
+}
+
+// Pareto frontier: nobody on it is beaten on both axes (higher pass@1, lower waste).
+function frontier(points) {
+  const s = [...points].sort((a, b) => a.x - b.x || b.y - a.y);
+  const out = new Set();
+  let best = -Infinity;
+  for (const p of s) if (p.y > best) { out.add(p.m.id); best = p.y; }
+  return out;
+}
+
+// ---------- highlights ----------
+function renderHighlights() {
+  const done = completeModels();
+  const best = [...done].sort((a, b) => (b.vanilla.pass_at_1 ?? -1) - (a.vanilla.pass_at_1 ?? -1))[0];
+  const lean = [...done].sort((a, b) => (a.vanilla.inflation ?? 99) - (b.vanilla.inflation ?? 99))[0];
+  const delta = [...DATA.models].filter((m) => m.ponytail_delta?.overall != null)
+    .sort((a, b) => b.ponytail_delta.overall - a.ponytail_delta.overall)[0];
+  const cards = [
+    ["Best pass@1", best ? f1(best.vanilla.pass_at_1) : "—", best ? name(best.id) : "no scored model"],
+    ["Leanest solution", lean ? fx(lean.vanilla.inflation) : "—", lean ? name(lean.id) : "no scored model"],
+    ["Most lines shaved", delta ? `−${delta.ponytail_delta.overall} LOC` : "—", delta ? name(delta.id) + " with the minimal prompt" : "no pair yet"],
+    ["Models qualified", `${done.length}/${DATA.models.length}`, `${DATA.reps} reps per task · threshold ${DATA.qualify_threshold}`],
+  ];
+  $("hl").innerHTML = cards.map(([k, v, s]) => `
+    <div class="hl-card"><div class="k">${esc(k)}</div><div class="v">${esc(v)}</div><div class="s">${esc(s)}</div></div>`).join("");
+}
+
+// ---------- chart ----------
+function ticks(lo, hi, n) {
+  const raw = (hi - lo) / n, mag = 10 ** Math.floor(Math.log10(raw)), r = raw / mag;
+  const step = (r >= 5 ? 10 : r >= 2 ? 5 : r >= 1 ? 2 : 1) * mag;
+  const out = [];
+  for (let v = Math.ceil(lo / step) * step; v <= hi + step * 1e-9; v += step) out.push(+v.toPrecision(12));
+  return out;
+}
+
+function drawChart() {
+  const svg = $("chart");
+  const xs = XS[metric];
+  const points = completeModels()
+    .map((m) => ({ m, x: xs.get(m), y: m.vanilla.pass_at_1 }))
+    .filter((p) => p.x != null && p.y != null);
+  [...svg.querySelectorAll("*:not(title)")].forEach((n) => n.remove());
+
+  if (!points.length) {
+    svg.insertAdjacentHTML("beforeend", `<text x="480" y="260" text-anchor="middle">no scored model yet</text>`);
+    return;
+  }
+
+  const W = 960, H = 520, M = { t: 30, r: 150, b: 58, l: 62 };
+  const pw = W - M.l - M.r, ph = H - M.t - M.b;
+  function pad(a, b) {
+  // A single scored model gives a zero-width domain: expand around it or the
+  // scale divides by zero and every point lands on an invalid coordinate.
+  if (b - a < 1e-9) { const d = Math.max(Math.abs(a) * 0.15, 0.1); return [a - d, b + d]; }
+  const p = (b - a) * 0.12;
+  return [a - p, b + p];
+}
+  const [x0, x1] = pad(Math.min(...points.map((p) => p.x)), Math.max(...points.map((p) => p.x)));
+  const y0 = 0, y1 = 1;
+  const sx = (v) => M.l + ((v - x0) / (x1 - x0)) * pw;
+  const sy = (v) => M.t + (1 - (v - y0) / (y1 - y0)) * ph;
+
+  let g = "";
+  for (const t of ticks(y0, y1, 4)) {
+    g += `<line class="grid-line" x1="${M.l}" x2="${M.l + pw}" y1="${sy(t)}" y2="${sy(t)}"/>`;
+    g += `<text x="${M.l - 10}" y="${sy(t) + 4}" text-anchor="end">${t.toFixed(2)}</text>`;
+  }
+  for (const t of ticks(x0, x1, 5)) {
+    g += `<line class="grid-line" x1="${sx(t)}" x2="${sx(t)}" y1="${M.t}" y2="${M.t + ph}"/>`;
+    g += `<text x="${sx(t)}" y="${M.t + ph + 20}" text-anchor="middle">${metric === "loc" ? t.toFixed(0) : t.toFixed(1) + "×"}</text>`;
+  }
+  g += `<line class="axis-line" x1="${M.l}" x2="${M.l + pw}" y1="${M.t + ph}" y2="${M.t + ph}"/>`;
+  g += `<line class="axis-line" x1="${M.l}" x2="${M.l}" y1="${M.t}" y2="${M.t + ph}"/>`;
+  g += `<text x="${M.l + pw / 2}" y="${H - 14}" text-anchor="middle">${esc(xs.axis)}</text>`;
+  g += `<text x="18" y="${M.t + ph / 2}" text-anchor="middle" transform="rotate(-90 18 ${M.t + ph / 2})">pass@1 ↑</text>`;
+
+  const front = frontier(points);
+  const fp = points.filter((p) => front.has(p.m.id)).sort((a, b) => a.x - b.x);
+  if (fp.length > 1) {
+    const d = fp.map((p, i) => {
+      const prev = i === 0 ? null : fp[i - 1];
+      if (!prev) return `M${sx(p.x)},${sy(p.y)}`;
+      return `L${sx(p.x)},${sy(prev.y)} L${sx(p.x)},${sy(p.y)}`;
+    }).join(" ");
+    g += `<path class="frontier" d="${d}"/>`;
+  }
+
+  for (const p of points) {
+    const on = front.has(p.m.id);
+    g += `<circle class="pt${on ? "" : " dim"}" cx="${sx(p.x)}" cy="${sy(p.y)}" r="6" tabindex="0"
+      data-model="${esc(p.m.id)}" aria-label="${esc(name(p.m.id))}: pass@1 ${f1(p.y)}, ${f1(p.x)}"/>`;
+  }
+  // Labels are greedy-placed from the top so a crowded chart stays readable:
+  // a skipped label still reaches the reader through the tooltip and the table.
+  const placed = [];
+  for (const p of [...points].sort((a, b) => b.y - a.y)) {
+    const lx = sx(p.x) + 12, ly = sy(p.y) + 4;
+    if (placed.some(([px, py]) => Math.abs(px - lx) < 120 && Math.abs(py - ly) < 15)) continue;
+    placed.push([lx, ly]);
+    g += `<text class="lbl" x="${lx}" y="${ly}">${esc(name(p.m.id))}</text>`;
+  }
+
+  svg.insertAdjacentHTML("beforeend", g + (points.length === 1
+    ? `<text x="${M.l + pw / 2}" y="${M.t + ph / 2 + 46}" text-anchor="middle">only one model has qualified so far — a frontier needs two</text>`
+    : ""));
+
+  const tip = $("tip");
+  const show = (ev, m) => {
+    tip.innerHTML = `<b>${esc(name(m.id))}</b><br>pass@1 ${f1(m.vanilla.pass_at_1)}<br>
+      inflation ${fx(m.vanilla.inflation)} · minimal ${fx(m.minimal?.inflation)}<br>
+      Δ ${m.ponytail_delta?.overall == null ? "—" : "−" + m.ponytail_delta.overall + " LOC"}`;
+    tip.style.opacity = 1;
+    const r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(ev.clientX + 14, innerWidth - r.width - 12) + "px";
+    tip.style.top = Math.max(8, ev.clientY - r.height - 12) + "px";
+  };
+  svg.querySelectorAll("circle.pt").forEach((c) => {
+    const m = DATA.models.find((x) => x.id === c.dataset.model);
+    c.addEventListener("mouseenter", (e) => show(e, m));
+    c.addEventListener("mousemove", (e) => show(e, m));
+    c.addEventListener("mouseleave", () => (tip.style.opacity = 0));
+    c.addEventListener("focus", (e) => show(e, m));
+    c.addEventListener("blur", () => (tip.style.opacity = 0));
+  });
+}
+
+// ---------- leaderboard ----------
+function renderTable() {
+  const rows = [...DATA.models];
+  const get = {
+    model: (m) => name(m.id),
+    pass: (m) => num(m.vanilla?.pass_at_1),
+    inf: (m) => num(m.vanilla?.inflation),
+    min: (m) => num(m.minimal?.inflation),
+    delta: (m) => num(m.ponytail_delta?.overall),
+    loc: (m) => num(avgLoc(m)),
+  };
+  rows.sort((a, b) => (get[sortKey](a) > get[sortKey](b) ? 1 : -1) * (sortAsc ? 1 : -1));
+
+  const cols = [
+    ["model", "model", ""], ["pass", "pass@1", "num"], ["inf", "inflation", "num"],
+    ["min", "inflation · minimal", "num"], ["delta", "Δ ponytail", "num"], ["loc", "LOC/task", "num"],
+  ];
+  $("tbl").innerHTML = `
+    <thead><tr>${cols.map(([k, label, cls]) =>
+      `<th class="${cls}"><button data-k="${k}" ${k === sortKey ? "data-active" : ""}>${label}</button></th>`).join("")}</tr></thead>
+    <tbody>${rows.map((m) => {
+      // A model that ran and failed every task was still scored: pass@1 = 0 is a
+      // result. Hiding it behind "did not qualify" would erase the failure.
+      const ok = m.status === "complete";
+      return `<tr>
+        <td class="mono">${esc(name(m.id))}</td>
+        ${ok ? `
+        <td class="num ${m.vanilla?.pass_at_1 >= DATA.qualify_threshold ? "good" : m.vanilla?.pass_at_1 > 0 ? "warn" : "bad"}">${f1(m.vanilla?.pass_at_1)}</td>
+        <td class="num ${cls(m.vanilla?.inflation, 3, 5)}">${fx(m.vanilla?.inflation)}</td>
+        <td class="num ${cls(m.minimal?.inflation, 3, 5)}">${fx(m.minimal?.inflation)}</td>
+        <td class="num">${m.ponytail_delta?.overall == null ? '<span class="null">—</span>' : "−" + m.ponytail_delta.overall}</td>
+        <td class="num">${avgLoc(m) == null ? '<span class="null">—</span>' : avgLoc(m).toFixed(1)}</td>` : `
+        <td class="num null" colspan="5">not scored (${esc(m.status)})</td>`}
+      </tr>`;
+    }).join("")}</tbody>`;
+  $("tbl").querySelectorAll("thead button").forEach((b) => b.addEventListener("click", () => {
+    const k = b.dataset.k;
+    sortAsc = k === sortKey ? !sortAsc : k === "model";
+    sortKey = k;
+    renderTable();
+  }));
+}
+
+// ---------- per task ----------
+function renderTasks() {
+  const ts = Object.keys(DATA.tasks);
+  const rows = DATA.models.filter((m) => m.status === "complete" && m.vanilla?.per_task);
+  $("tasks").innerHTML = `
+    <thead><tr><th>model</th>${ts.map((t) => `<th class="num">${esc(t.replace(/^\d+-/, ""))}<br><span class="null">ref ${DATA.tasks[t]} LOC</span></th>`).join("")}</tr></thead>
+    <tbody>${rows.map((m) => `<tr><td class="mono">${esc(name(m.id))}</td>${ts.map((t) => {
+      const v = m.vanilla.per_task[t];
+      if (!v || v.pass_at_1 == null) return `<td class="cells null">—</td>`;
+      const p = v.pass_at_1, inf = v.inflation;
+      return `<td class="cells" title="pass@1 ${f1(p)} · inflation ${fx(inf)}">
+        <span class="t ${p >= 0.6 ? "good" : "bad"}">${f1(p)}</span>
+        <span class="${cls(inf, 3, 5)}">${fx(inf)}</span></td>`;
+    }).join("")}</tr>`).join("")}</tbody>`;
+}
+
+// ---------- boot ----------
+fetch("data/results.json", { cache: "no-store" }).then((r) => {
+  if (!r.ok) throw new Error(r.status);
+  return r.json();
+}).then((d) => {
+  DATA = d;
+  $("meta").innerHTML = `last scored <b>${String(d.generated_at).slice(0, 10)}</b> ·
+    ${Object.keys(d.tasks).length} tasks × ${d.reps} reps · reference LOC in-repo ·
+    ${d.models.length} models · ${d.errors ? `<b>${d.errors} provider errors excluded</b>` : "no provider errors"}`;
+  $("xsel").innerHTML = Object.entries(XS).map(([k, v]) =>
+    `<button data-k="${k}" aria-pressed="${k === metric}">${v.label}</button>`).join("");
+  $("xsel").querySelectorAll("button").forEach((b) => b.addEventListener("click", () => {
+    metric = b.dataset.k;
+    $("xsel").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(x.dataset.k === metric)));
+    drawChart();
+  }));
+  renderHighlights(); renderTable(); renderTasks(); drawChart();
+}).catch(() => {
+  $("meta").textContent = "failed to load data/results.json";
+  $("hl").innerHTML = `<div class="empty">Could not load <code>data/results.json</code>.
+    Serve this directory over HTTP (<code>python3 -m http.server</code>) — opening the file directly is blocked by the browser.</div>`;
+});
 </script>
 </body>
 </html>

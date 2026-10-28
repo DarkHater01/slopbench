@@ -63,7 +63,9 @@ tasks/               5 airtight Python specs (task.md) + reference/solution.py +
 runner/run.js        model × task × variant × rep → OpenRouter → Docker sandbox → data/raw.json
 runner/score.js      aggregates raw.json → data/results.json (throws on inconsistent input)
 runner/test_score.js self-test of the scorer (no API required)
-index.html           static leaderboard, reads data/results.json. No backend. No framework.
+index.html           interactive leaderboard: pass@1 vs waste with a Pareto
+                     frontier, sortable table and per-task breakdown. Reads
+                     data/results.json at load time. No backend, no framework.
 ```
 
 Every generated solution runs inside a container with:
