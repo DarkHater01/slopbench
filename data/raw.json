@@ -649,96 +649,6 @@
   },
   {
     "model": "glm-5.3-flash-free",
-    "task": "02-dedupe-json",
-    "variant": "minimal",
-    "rep": 2,
-    "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
-    "loc": 0,
-    "junit": null
-  },
-  {
-    "model": "glm-5.3-flash-free",
-    "task": "02-dedupe-json",
-    "variant": "minimal",
-    "rep": 3,
-    "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
-    "loc": 0,
-    "junit": null
-  },
-  {
-    "model": "glm-5.3-flash-free",
-    "task": "03-date-range",
-    "variant": "vanilla",
-    "rep": 1,
-    "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
-    "loc": 0,
-    "junit": null
-  },
-  {
-    "model": "glm-5.3-flash-free",
-    "task": "03-date-range",
-    "variant": "vanilla",
-    "rep": 2,
-    "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
-    "loc": 0,
-    "junit": null
-  },
-  {
-    "model": "glm-5.3-flash-free",
-    "task": "03-date-range",
-    "variant": "vanilla",
-    "rep": 3,
-    "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
-    "loc": 0,
-    "junit": null
-  },
-  {
-    "model": "glm-5.3-flash-free",
-    "task": "03-date-range",
-    "variant": "minimal",
-    "rep": 1,
-    "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
-    "loc": 0,
-    "junit": null
-  },
-  {
-    "model": "glm-5.3-flash-free",
-    "task": "03-date-range",
-    "variant": "minimal",
-    "rep": 2,
-    "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
-    "loc": 0,
-    "junit": null
-  },
-  {
-    "model": "glm-5.3-flash-free",
-    "task": "03-date-range",
-    "variant": "minimal",
-    "rep": 3,
-    "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
-    "loc": 0,
-    "junit": null
-  },
-  {
-    "model": "glm-5.3-flash-free",
-    "task": "04-retry-backoff",
-    "variant": "vanilla",
-    "rep": 1,
-    "passed": false,
-    "error": "opencode: dropped: the provider rate-limited the agent (last output: Error: Free usage limit reached. Free models work in OpenCode (https://opencode.ai); subscribe to OpenCode Go to keep going: https://opencode.ai/go)",
-    "loc": 0,
-    "junit": null
-  },
-  {
-    "model": "glm-5.3-flash-free",
     "task": "04-retry-backoff",
     "variant": "vanilla",
     "rep": 2,
@@ -1049,6 +959,168 @@
     "harness": "opencode",
     "extra_files": [],
     "ms": 11910,
+    "tail": ""
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 0); last output: out = [] | for record in records: | value = record.get(key, seen) | if value not in seen: | seen.add(value) | out.append(record) | return out | ```",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 7935,
+    "tail": ""
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 13486,
+    "tail": ""
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 14,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 9925,
+    "tail": ""
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 23,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 14355,
+    "tail": ""
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 13,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 5263,
+    "tail": ""
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 15,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 6466,
+    "tail": ""
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 13,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 7014,
+    "tail": ""
+  },
+  {
+    "model": "glm-5.3-flash-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 34964,
     "tail": ""
   }
 ]
