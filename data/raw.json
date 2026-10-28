@@ -1302,5 +1302,119 @@
     "extra_files": [],
     "ms": 14319,
     "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-lightning-free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 10,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 8093,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-lightning-free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 10,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 7938,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-lightning-free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 17762,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-lightning-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 18,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 23107,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-lightning-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 18,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 12446,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-lightning-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 18,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 34813,
+    "tail": ""
   }
 ]
