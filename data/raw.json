@@ -3393,5 +3393,62 @@
     "extra_files": [],
     "ms": 11055,
     "tail": "ile \"/job/solution.py\", line 30\nE       ```<|end|><|start|>tool to=write<|channel|>analysis <|constrain|>xml<|message|><rfl:parameter name=\"content\">\nE       ^\nE   SyntaxError: invalid syntax\n=========================== short test summary info ============================\nERROR tests/test_solution.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.09s\n"
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 35002,
+    "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 28,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 26454,
+    "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 29712,
+    "tail": ""
   }
 ]
