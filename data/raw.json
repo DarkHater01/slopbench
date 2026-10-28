@@ -3803,5 +3803,62 @@
     "extra_files": [],
     "ms": 10364,
     "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 9556,
+    "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 32,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 45730,
+    "tail": ""
+  },
+  {
+    "model": "flint-40b-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 29,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 33839,
+    "tail": ""
   }
 ]
