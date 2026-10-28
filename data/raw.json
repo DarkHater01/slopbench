@@ -1690,5 +1690,140 @@
     "extra_files": [],
     "ms": 95787,
     "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-lightning-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 43,
+    "harness": "opencode",
+    "extra_files": [
+      "__pycache__"
+    ],
+    "ms": 49537,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 25,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 9916,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 25,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 9343,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 25,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 21200,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 23,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 17217,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 23,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 20217,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "01-parse-args",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 10553,
+    "tail": ""
   }
 ]
