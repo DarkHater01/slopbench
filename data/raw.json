@@ -3031,5 +3031,262 @@
     "extra_files": [],
     "ms": 3219,
     "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 3204,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 12,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 3257,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 18,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 5198,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": true,
+    "loc": 21,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 10707,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 20,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 5112,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": false,
+    "error": "opencode: the agent wrote no solution.py (exit 0); last output: '2026-01-30' -> 2026-01-30 | '2026-1-1' -> ValueError Invalid isoformat string: '2026-1-1' | '20260130' -> 2026-01-30 | '2026-13-01' -> ValueError month must be in 1..12 | '2026-02-30' -> ValueError day is out of range for month | '2026-01-30x' -> ValueError Invalid isoformat string: '2026-01-30x' | 'nope' -> ValueError Invalid isoformat string: 'nope' | '' -> ValueError Invalid isoformat string: ",
+    "loc": 0,
+    "junit": null
+  },
+  {
+    "model": "beam-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 18,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 5745,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 18,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 6402,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 3008,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 7788,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 5015,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 5724,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 3075,
+    "tail": ""
+  },
+  {
+    "model": "beam-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 5367,
+    "tail": ""
   }
 ]
