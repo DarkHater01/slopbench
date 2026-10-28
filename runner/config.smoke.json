@@ -1,11 +1,13 @@
 {
   "reps": 1,
   "pass_timeout_seconds": 50,
+  "agent_timeout_seconds": 420,
+  "harness": "opencode",
   "provider": "opencode-zen",
-  "note": "SMOKE config. One free model, one rep, every task: 10 calls. It proves the key, the endpoint and the sandbox in about two minutes, writes to data/smoke/ and commits nothing. Use it before a full sweep (see .github/workflows/bench.yml, mode=smoke).",
+  "note": "SMOKE config. One free model, one rep, one task (SLOPBENCH_TASKS=01-parse-args in CI): two agent runs that prove the key, the CLI image and the grading path in about three minutes. Writes to data/smoke/ and commits nothing. Use it before a full sweep (see .github/workflows/bench.yml, mode=smoke).",
   "variants": {
     "vanilla": "You are an expert Python developer. Solve the task exactly as specified.",
-    "minimal": "You write the least Python that fully satisfies the spec. Standard library only. No classes, no abstractions, no comments, no error handling beyond what the spec requires, no extra features. A few clear lines beat a clever framework. Output only the code."
+    "minimal": "You write the least Python that fully satisfies the spec. Standard library only. No classes, no abstractions, no comments, no error handling beyond what the spec requires, no extra features. A few clear lines beat a clever framework."
   },
   "models": [{ "id": "laguna-s-2.1-free" }]
 }

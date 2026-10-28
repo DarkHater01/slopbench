@@ -203,6 +203,8 @@ The difference in median LOC is the cheapest lever against AI bloat that any tea
 ```
 tasks/               5 airtight Python specs (task.md) + reference/solution.py + pytest suite
 runner/run.js        model × task × variant × rep → provider → Docker sandbox → data/raw.json
+runner/opencode.js   the agent harness: the real OpenCode CLI in a container with a
+                     network, told to write solution.py, graded afterwards without one
 runner/providers.json  endpoints and the env var holding each key (Zen free, OpenRouter)
 runner/score.js      aggregates raw.json → data/results.json (throws on inconsistent input)
 runner/test_score.js self-test of the scorer (no API required)
@@ -211,6 +213,14 @@ index.html           interactive leaderboard: pass@1 vs waste with a Pareto
                      model catalog. Reads data/results.json at load time.
                      No backend, no framework.
 ```
+
+**Two harnesses, one metric.** `harness: "chat"` is a single completion; `harness:
+"opencode"` runs the agent CLI, lets it write the file with its tools, and grades
+whatever landed on disk. The repo uses the agent harness, because that is the
+thing people actually ship and because the free models are meant to be driven by
+it. The inflation number means the same in both: lines in the solution file ÷
+lines in the reference. Extra files the agent creates are reported per run and not
+counted — a solution split across five modules would otherwise look lean.
 
 Every generated solution runs inside a container with:
 
@@ -221,6 +231,12 @@ Every generated solution runs inside a container with:
 - 50-second timeout
 
 Code written by models is treated as hostile. It never touches the host.
+
+The agent that writes it runs in a second image (`sandbox/Dockerfile.opencode`):
+same hardening, plus the CLI and the network, because a tool-using agent cannot
+reach a provider without both. The key is passed by env **name**, never in the
+argv and never in a mounted config. The moment the agent finishes, grading moves
+to the network-less image.
 
 **Runs are repeated 3×** per task (`reps` in `runner/config.json`). A task's `pass@1` is the share of those runs that pass; its LOC only counts once that share reaches 0.6. A solution that passes one time in three is not a solution you can rely on, so its line count is not evidence of anything.
 

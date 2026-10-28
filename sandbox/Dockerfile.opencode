@@ -1,0 +1,21 @@
+# The image the agent harness runs in: the real OpenCode CLI plus the network it
+# needs to reach its provider. Grading stays in the other image, which has no
+# network and no CLI -- the code is treated as hostile once it is written.
+FROM python:3.12-slim
+
+# Pinned: runner/opencode.js names the same version, so a silent CLI upgrade
+# cannot change what the benchmark measures between two sweeps.
+ARG OPENCODE_VERSION=2.0.28
+
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends bash curl ca-certificates unzip git ripgrep \
+ && rm -rf /var/lib/apt/lists/*
+
+# OpenCode 2 ships on its own channel (the v1 installer refuses 2.x).
+RUN curl -fsSL https://opencode.ai/v2/install | bash -s -- --version "${OPENCODE_VERSION}" --no-modify-path \
+ && cp "$HOME/.opencode/bin/opencode" /usr/local/bin/opencode \
+ && opencode --version
+
+RUN useradd -m -u 1000 runner
+USER runner
+WORKDIR /job

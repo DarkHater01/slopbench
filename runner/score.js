@@ -42,9 +42,11 @@ try {
 if (!Array.isArray(raw) || raw.length === 0) fail(`no runs in ${RAW}`);
 
 const tasksDir = path.join(ROOT, "tasks");
+const only = process.env.SLOPBENCH_TASKS ? process.env.SLOPBENCH_TASKS.split(",").map((s) => s.trim()).filter(Boolean) : null;
 const taskIds = fs
   .readdirSync(tasksDir)
   .filter((d) => fs.existsSync(path.join(tasksDir, d, "task.json")))
+  .filter((d) => !only || only.includes(d))
   .sort();
 
 const refLoc = {};

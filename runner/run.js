@@ -13,6 +13,8 @@ const CFG_PATH = process.env.SLOPBENCH_CONFIG
   : path.join(__dirname, "config.json");
 const cfg = require(CFG_PATH);
 const providers = require("./providers.json");
+const opencode = require("./opencode");
+const HARNESS = cfg.harness || "chat"; // "chat" = one completion, "opencode" = the real CLI
 const IMAGE = "slopbench-sandbox";
 const RAW_PATH = process.env.SLOPBENCH_RAW || path.join(ROOT, "data", "raw.json");
 
@@ -43,10 +45,14 @@ function safeEnv() {
 
 function listTasks() {
   const dir = path.join(ROOT, "tasks");
+  // SLOPBENCH_TASKS=01-parse-args,03-date-range narrows a sweep; the smoke run
+  // uses it to spend one task's budget instead of five.
+  const only = process.env.SLOPBENCH_TASKS ? process.env.SLOPBENCH_TASKS.split(",").map((s) => s.trim()).filter(Boolean) : null;
   return fs
     .readdirSync(dir)
     .map((d) => path.join(dir, d))
     .filter((p) => fs.statSync(p).isDirectory() && fs.existsSync(path.join(p, "task.json")))
+    .filter((p) => !only || only.includes(path.basename(p)))
     .sort();
 }
 
@@ -174,18 +180,30 @@ function ensureImage() {
 }
 
 const TMP = path.join(ROOT, "runner", "tmp");
-function prepareJob(taskDir, code) {
+
+function newJob(taskDir) {
   const task = require(path.join(taskDir, "task.json"));
   const job = path.join(TMP, `${task.id}_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`);
+  fs.mkdirSync(job, { recursive: true });
+  return { job, task };
+}
+
+// Grading happens after the code exists, whichever harness wrote it: the tests are
+// copied in at this point and the container has no network.
+function grade(job, taskDir) {
   fs.mkdirSync(path.join(job, "tests"), { recursive: true });
-  const entryName = path.basename(task.entry || "solution.py"); // basename kills any ../ traversal
-  const entry = path.join(job, entryName);
-  fs.writeFileSync(entry, code);
   fs.copyFileSync(
     path.join(taskDir, "tests", "test_solution.py"),
     path.join(job, "tests", "test_solution.py"),
   );
   fs.writeFileSync(path.join(job, "conftest.py"), "");
+  return dockerRun(job, cfg.pass_timeout_seconds);
+}
+
+function prepareJob(taskDir, code) {
+  const { job, task } = newJob(taskDir);
+  const entryName = path.basename(task.entry || "solution.py"); // basename kills any ../ traversal
+  fs.writeFileSync(path.join(job, entryName), code);
   return { job, task };
 }
 
@@ -221,26 +239,49 @@ async function main() {
           const label = `${model.id}/${path.basename(taskDir)}/${variant}#${rep}`;
           console.log(`run: ${label}`);
           try {
-            let content;
+            const provider = model.fixture ? null : providerOf(model);
+            if (provider?.paceMs) await new Promise((r) => setTimeout(r, provider.paceMs));
+
+            let code, r, taskId = path.basename(taskDir), meta = {};
             if (model.fixture) {
               const fdir = path.join(__dirname, "fixtures", model.fixture);
               const vfile = path.join(fdir, path.basename(taskDir), `${variant}.py`);
-              content = fs.readFileSync(
+              const content = fs.readFileSync(
                 fs.existsSync(vfile) ? vfile : path.join(fdir, `${path.basename(taskDir)}.py`),
                 "utf8",
               );
+              code = extractCode(content);
+              const { job, task } = prepareJob(taskDir, code);
+              taskId = task.id;
+              r = grade(job, taskDir);
+              fs.rmSync(job, { recursive: true, force: true });
+            } else if (HARNESS === "opencode") {
+              const { job, task } = newJob(taskDir);
+              taskId = task.id;
+              try {
+                const out = await opencode.run({
+                  jobDir: job, taskMd, system,
+                  provider, modelId: model.id,
+                  timeoutS: cfg.agent_timeout_seconds || 420,
+                });
+                code = out.code;
+                meta = { extra_files: out.extra_files, ms: out.ms };
+                if (out.extra_files.length) console.log(`   extra files (not counted): ${out.extra_files.join(", ")}`);
+                r = grade(job, taskDir);
+              } finally {
+                fs.rmSync(job, { recursive: true, force: true });
+              }
             } else {
-              const provider = providerOf(model);
-              if (provider.paceMs) await new Promise((r) => setTimeout(r, provider.paceMs));
-              content = await callModel(provider, model.id, system, taskMd);
+              const content = await callModel(provider, model.id, system, taskMd);
+              code = extractCode(content);
+              const { job, task } = prepareJob(taskDir, code);
+              taskId = task.id;
+              r = grade(job, taskDir);
+              fs.rmSync(job, { recursive: true, force: true });
             }
-            const code = extractCode(content);
-            const { job, task } = prepareJob(taskDir, code);
-            const r = dockerRun(job, cfg.pass_timeout_seconds);
-            fs.rmSync(job, { recursive: true, force: true });
             raw.push({
               model: model.id,
-              task: task.id,
+              task: taskId,
               variant,
               rep,
               passed: r.passed,
@@ -248,6 +289,8 @@ async function main() {
               junit: r.junit,
               suspicious: isSuspicious(code),
               loc: loc(code),
+              harness: HARNESS,
+              ...meta,
               tail: r.passed ? "" : r.tail,
             });
           } catch (e) {

@@ -1,11 +1,13 @@
 {
   "reps": 3,
   "pass_timeout_seconds": 50,
+  "agent_timeout_seconds": 420,
+  "harness": "opencode",
   "provider": "opencode-zen",
-  "note": "LIVE config. 'provider' selects an entry in runner/providers.json; a model can override it with its own 'provider' key. Every free Zen model ends in -free: OpenCode absorbs the cost, so the bench costs nothing but a key and a rate limit. reps is 3 here instead of 5 because the free roster is 10 models: 10 * 5 tasks * 2 variants * 3 reps = 300 calls per full sweep.",
+  "note": "LIVE config. harness=opencode runs the real OpenCode CLI headless (runner/opencode.js) and grades the file it writes; the window is 7 minutes per run. Every model ends in -free: OpenCode absorbs the cost, so the sweep costs one API key and a rate limit. reps is 3 because the roster is 10: 10 * 5 tasks * 2 variants * 3 reps = 300 agent runs.",
   "variants": {
     "vanilla": "You are an expert Python developer. Solve the task exactly as specified.",
-    "minimal": "You write the least Python that fully satisfies the spec. Standard library only. No classes, no abstractions, no comments, no error handling beyond what the spec requires, no extra features. A few clear lines beat a clever framework. Output only the code."
+    "minimal": "You write the least Python that fully satisfies the spec. Standard library only. No classes, no abstractions, no comments, no error handling beyond what the spec requires, no extra features. A few clear lines beat a clever framework."
   },
   "models": [
     { "id": "deepseek-v4.1-flash-free" },

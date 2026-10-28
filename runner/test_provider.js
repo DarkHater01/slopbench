@@ -34,5 +34,21 @@ for (const m of live.models) {
   assert(/-free$/.test(m.id), `config.json: ${m.id} is not a -free model`);
 }
 assert.strictEqual(live.provider, "opencode-zen", "config.json: expected the free OpenCode Zen provider");
+assert.strictEqual(live.harness, "opencode", "config.json: expected the agent harness");
+assert(live.agent_timeout_seconds > 0, "config.json: agent_timeout_seconds must be set for the agent harness");
 
-console.log(`test_provider: PASS (${CONFIGS.length} configs, ${live.models.length} free models, ${Object.keys(providers).length} providers)`);
+// The agent argv is built without Docker, so its invariants are cheap to pin: the
+// key travels by name, and the run is not allowed to be unhardened.
+const { opencodeArgs } = require("./opencode");
+const argv = opencodeArgs({
+  runDir: "/tmp/oc", jobDir: "/tmp/job", provider: "slopbench",
+  modelId: "laguna-s-2.1-free", keyEnv: "OPENCODE_API_KEY", message: "hi",
+});
+const s = argv.join(" ");
+assert(/ -e OPENCODE_API_KEY /.test(` ${s} `), "opencode argv must pass the key by env name, never by value");
+assert(!s.includes("sk-"), "opencode argv must not contain a credential");
+assert(s.includes("--cap-drop ALL"), "opencode argv must drop capabilities");
+assert(s.includes("--security-opt no-new-privileges"), "opencode argv must set no-new-privileges");
+assert(s.includes("--network bridge"), "opencode argv needs the network its provider lives on");
+
+console.log(`test_provider: PASS (${CONFIGS.length} configs, ${live.models.length} free models, ${Object.keys(providers).length} providers, agent argv hardened)`);

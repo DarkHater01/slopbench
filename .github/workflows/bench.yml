@@ -42,6 +42,9 @@ jobs:
       - name: Build sandbox image
         run: docker build -t slopbench-sandbox sandbox/
 
+      - name: Build the agent image (OpenCode CLI)
+        run: docker build -f sandbox/Dockerfile.opencode -t slopbench-opencode sandbox/
+
       - name: Check the provider key
         id: key
         env:
@@ -100,8 +103,10 @@ jobs:
         if: inputs.mode == 'smoke' && steps.key.outputs.skip != '1'
         env:
           OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           export SLOPBENCH_CONFIG=runner/config.smoke.json
+          export SLOPBENCH_TASKS=01-parse-args
           export SLOPBENCH_RAW=data/smoke/raw.json
           export SLOPBENCH_OUT=data/smoke/results.json
           node runner/run.js
