@@ -18,10 +18,6 @@ SlopBench reports two numbers per model — and one that nobody else publishes:
 
 ---
 
-<a href="docs/demo.gif"><img src="docs/demo.gif" alt="SlopBench demo" width="700"></a>
-
----
-
 ## The number
 
 `inflation = LOC generated ÷ LOC of the reference solution`
@@ -45,7 +41,9 @@ A model that solves a 12-line task in 96 lines has inflation ≈ 8.0×. It passe
 
 _Snapshot regenerated daily by [GitHub Actions](.github/workflows/bench.yml) at `data/results.json`. Previous snapshots are in git history._
 
-![live leaderboard](docs/screenshot.png)
+<!-- The old demo.gif and screenshot.png showed a previous roster (other providers,
+     other numbers). They stay in docs/ until someone re-records them, but they are
+     not embedded: a picture of stale results is worse than no picture. -->
 
 ---
 
