@@ -2192,5 +2192,119 @@
     ],
     "ms": 27007,
     "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 29,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 28482,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 36,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 32962,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 26,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 18673,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 26,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 14520,
+    "tail": ""
+  },
+  {
+    "model": "nemotron-3.5-super-vl-free",
+    "task": "05-csv-merge",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 29,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 9847,
+    "tail": ""
+  },
+  {
+    "model": "mimo-v2.6-flash-free",
+    "task": "01-parse-args",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 24,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 13250,
+    "tail": ""
   }
 ]
