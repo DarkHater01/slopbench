@@ -1,9 +1,25 @@
 name: weekly-bench
 
+# Regenerates data/ every Monday from the free roster in runner/config.json.
+# The provider and its key env come from runner/providers.json, so this workflow
+# never names a vendor: switching providers is a config change, not a YAML change.
+#
+# Without the secret the job exits cleanly instead of turning the schedule red.
+# Long free-tier runs are checkpointed every 2 minutes, and the runner resumes
+# from data/raw.json, so a throttled day costs one week, not the whole sweep.
+#
+# Manual runs: mode=smoke (1 model, 1 rep, every task, commits nothing)
+#              mode=full  (the weekly sweep)
 on:
   schedule:
     - cron: "0 6 * * 1" # Mondays 06:00 UTC
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "smoke = prove the key and the sandbox (10 calls, nothing committed); full = the weekly sweep"
+        type: choice
+        options: [full, smoke]
+        default: full
 
 permissions:
   contents: write
@@ -26,12 +42,84 @@ jobs:
       - name: Build sandbox image
         run: docker build -t slopbench-sandbox sandbox/
 
-      - name: Run benchmark (checkpointed)
+      - name: Check the provider key
+        id: key
         env:
+          MODE: ${{ inputs.mode || 'full' }}
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          CFG=runner/config.json
+          [ "$MODE" = "smoke" ] && CFG=runner/config.smoke.json
+          NAMES=$(node -e "
+            const c=require('./$CFG'), p=require('./runner/providers.json');
+            const used=[...new Set(c.models.filter(m=>!m.fixture).map(m=>p[m.provider||c.provider||'openrouter'].keyEnv))];
+            console.log(used.join(' '));
+          ")
+          echo "config $CFG needs: $NAMES"
+          for n in $NAMES; do
+            if [ -z "${!n}" ]; then
+              echo "::error::$n secret not set. Free OpenCode Zen models need a key from https://opencode.ai/auth; add it with: gh secret set $n"
+              echo "skip=1" >> "$GITHUB_OUTPUT"
+            fi
+          done
+
+      - name: Check model ids against the provider
+        if: steps.key.outputs.skip != '1'
+        env:
+          MODE: ${{ inputs.mode || 'full' }}
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          CFG=runner/config.json
+          [ "$MODE" = "smoke" ] && CFG=runner/config.smoke.json
+          node -e "
+            const { execFileSync } = require('child_process');
+            const c = require('./$CFG'), p = require('./runner/providers.json');
+            const prov = p[c.provider];
+            const key = process.env[prov.keyEnv];
+            const out = execFileSync('curl', ['-sS', '--max-time', '30', '-w', '\n%{http_code}', prov.base + '/models',
+              '-H', 'Authorization: Bearer ' + key], { encoding: 'utf8' });
+            const nl = out.lastIndexOf('\n');
+            const code = out.slice(nl + 1).trim(), body = out.slice(0, nl);
+            if (code !== '200') {
+              console.log('::error::' + prov.name + ' /models returned HTTP ' + code + ': ' + body.slice(0, 300));
+              process.exit(1);
+            }
+            let ids = [];
+            try { const j = JSON.parse(body); ids = (j.data || j).map((m) => m.id || m); } catch (e) {
+              console.log('::warning::could not parse the model list: ' + body.slice(0, 200)); process.exit(0);
+            }
+            console.log(prov.name + ' lists ' + ids.length + ' models');
+            const missing = c.models.map((m) => m.id).filter((id) => !ids.includes(id));
+            // A retired free id is a 400 that reads like a bad model; say it here instead.
+            for (const id of missing) console.log('::warning::' + id + ' is in ' + process.argv[1] + ' but not in the provider list');
+          " "$CFG"
+
+      - name: Smoke run (nothing committed)
+        if: inputs.mode == 'smoke' && steps.key.outputs.skip != '1'
+        env:
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+        run: |
+          export SLOPBENCH_CONFIG=runner/config.smoke.json
+          export SLOPBENCH_RAW=data/smoke/raw.json
+          export SLOPBENCH_OUT=data/smoke/results.json
+          node runner/run.js
+          node runner/score.js || SLOPBENCH_PARTIAL=1 node runner/score.js
+          node -e "
+            const r=require('./data/smoke/results.json');
+            for(const m of r.models) console.log(m.id, m.status, m.vanilla?.pass_at_1, m.vanilla?.inflation, m.note||'');
+          "
+
+      - name: Run benchmark (checkpointed)
+        if: inputs.mode != 'smoke' && steps.key.outputs.skip != '1'
+        env:
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           git config user.name "slopbench-bot"
           git config user.email "actions@users.noreply.github.com"
+          cp data/results.json /tmp/results.prev.json
           node runner/run.js &
           pid=$!
           while kill -0 "$pid" 2>/dev/null; do
@@ -45,6 +133,13 @@ jobs:
           done
           wait "$pid"
           node runner/score.js || SLOPBENCH_PARTIAL=1 node runner/score.js
+          # A sweep where every model errored is a provider outage, not a result:
+          # publishing it would wipe the last good leaderboard.
+          if [ "$(node -p "require('./data/results.json').models.filter(m=>m.status==='complete').length")" = "0" ]; then
+            echo "::warning::no model completed; keeping the previous results.json"
+            cp /tmp/results.prev.json data/results.json
+            exit 1
+          fi
           node runner/regen_readme.js
           git add data/ README.md
           git diff --cached --quiet || git commit -m "chore: weekly benchmark results"

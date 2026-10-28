@@ -1,13 +1,18 @@
 #!/usr/bin/env node
 // SlopBench runner: model × task × variant × rep -> sandboxed test run -> data/raw.json
-// Zero dependencies. Real models need OPENROUTER_API_KEY; entries with "fixture"
-// read canned responses instead (offline testing / CI smoke).
+// Zero dependencies. Real models need the key named by their provider in
+// runner/providers.json; entries with "fixture" read canned responses instead
+// (offline testing / CI smoke).
 const fs = require("fs");
 const path = require("path");
 const { spawnSync } = require("child_process");
 
 const ROOT = path.resolve(__dirname, "..");
-const cfg = require("./config.json");
+const CFG_PATH = process.env.SLOPBENCH_CONFIG
+  ? path.resolve(process.cwd(), process.env.SLOPBENCH_CONFIG)
+  : path.join(__dirname, "config.json");
+const cfg = require(CFG_PATH);
+const providers = require("./providers.json");
 const IMAGE = "slopbench-sandbox";
 const RAW_PATH = process.env.SLOPBENCH_RAW || path.join(ROOT, "data", "raw.json");
 
@@ -16,11 +21,20 @@ function fail(msg) {
   process.exit(1);
 }
 
+// A model may name its own provider; otherwise the config default applies. Two
+// providers in one roster is normal (a model id only exists at one of them), and
+// getting it wrong fails as a 400 that looks like a model failure.
+function providerOf(model) {
+  const name = model.provider || cfg.provider || "openrouter";
+  const p = providers[name];
+  if (!p) fail(`unknown provider "${name}" for ${model.id} (known: ${Object.keys(providers).join(", ")})`);
+  return { name, ...p, key: String(process.env[p.keyEnv] ?? "").trim() };
+}
+
 const fixtureModels = cfg.models.filter((m) => m.fixture);
 const liveModels = cfg.models.filter((m) => !m.fixture);
-if (liveModels.length && !process.env.OPENROUTER_API_KEY) {
-  fail("OPENROUTER_API_KEY not set (needed for non-fixture models)");
-}
+const missing = [...new Set(liveModels.map((m) => providerOf(m)).filter((p) => !p.key).map((p) => p.keyEnv))];
+if (missing.length) fail(`${missing.join(", ")} not set (needed by the non-fixture models in ${path.relative(ROOT, CFG_PATH)})`);
 
 // SECURITY: pass only needed vars to docker/build children; never the API key.
 function safeEnv() {
@@ -57,9 +71,9 @@ function extractCode(text) {
   return (fence ? fence[1] : text).trim() + "\n";
 }
 
-async function callOpenRouter(model, system, user) {
+async function callModel(provider, modelId, system, user) {
   const body = {
-    model,
+    model: modelId,
     messages: [
       { role: "system", content: system },
       { role: "user", content: user },
@@ -71,29 +85,33 @@ async function callOpenRouter(model, system, user) {
     const ctrl = new AbortController();
     const timer = setTimeout(() => ctrl.abort(), 240_000);
     try {
-      const res = await fetch(`${cfg.openrouter_base}/chat/completions`, {
+      const res = await fetch(`${provider.base}/chat/completions`, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          Authorization: `Bearer ${provider.key}`,
           "Content-Type": "application/json",
-          "X-Title": "SlopBench",
+          ...(provider.headers || {}),
         },
         body: JSON.stringify(body),
         signal: ctrl.signal,
       });
+      // Zen reports an exhausted free quota as 429 with the reason in the body:
+      // keep it, or "429 for 5 attempts" hides the only actionable sentence.
       if (res.status === 429 || res.status >= 500) {
-        if (attempt === 5) throw new Error(`OpenRouter ${res.status} for ${model} after 5 retries`);
+        const detail = (await res.text()).slice(0, 300);
+        if (attempt === 5) throw new Error(`${provider.name} ${res.status} for ${modelId} after 5 retries: ${detail}`);
+        console.error(`   ${provider.name} ${res.status}, retrying in 60s: ${detail}`);
         await new Promise((r) => setTimeout(r, 60_000));
         continue;
       }
-      if (!res.ok) throw new Error(`OpenRouter ${res.status} for ${model}: ${(await res.text()).slice(0, 300)}`);
+      if (!res.ok) throw new Error(`${provider.name} ${res.status} for ${modelId}: ${(await res.text()).slice(0, 300)}`);
       const json = await res.json();
       const content = json.choices?.[0]?.message?.content;
-      if (typeof content !== "string") throw new Error(`empty completion from ${model}`);
+      if (typeof content !== "string") throw new Error(`empty completion from ${modelId}`);
       return content;
     } catch (e) {
       // Let the per-run error handler in main() record this and keep the batch going.
-      if (attempt === 5) throw new Error(`OpenRouter request failed for ${model}: ${e.message}`);
+      if (attempt === 5) throw new Error(`${provider.name} request failed for ${modelId}: ${e.message}`);
       await new Promise((r) => setTimeout(r, 60_000));
     } finally {
       clearTimeout(timer);
@@ -179,6 +197,8 @@ async function main() {
 
   const tasks = listTasks();
   // Resume: load completed runs so restarts never redo them (fire-and-forget safe).
+  // Error records are not "completed": a 429 from a free tier is a provider outage,
+  // and skipping it forever would turn one bad night into a permanent 0.00.
   let raw = [];
   if (fs.existsSync(RAW_PATH)) {
     try {
@@ -188,7 +208,7 @@ async function main() {
       /* corrupt partial file — start over */
     }
   }
-  const done = new Set(raw.map((r) => `${r.model}|${r.task}|${r.variant}|${r.rep}`));
+  const done = new Set(raw.filter((r) => !r.error).map((r) => `${r.model}|${r.task}|${r.variant}|${r.rep}`));
   const completed = raw.length;
   console.log(`resume: ${completed} completed runs, ${cfg.models.length * tasks.length * Object.keys(cfg.variants).length * cfg.reps} total`);
   for (const model of cfg.models) {
@@ -210,7 +230,9 @@ async function main() {
                 "utf8",
               );
             } else {
-              content = await callOpenRouter(model.id, system, taskMd);
+              const provider = providerOf(model);
+              if (provider.paceMs) await new Promise((r) => setTimeout(r, provider.paceMs));
+              content = await callModel(provider, model.id, system, taskMd);
             }
             const code = extractCode(content);
             const { job, task } = prepareJob(taskDir, code);

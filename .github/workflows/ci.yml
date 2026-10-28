@@ -14,3 +14,4 @@ jobs:
         with:
           node-version: 24
       - run: node runner/test_score.js
+      - run: node runner/test_provider.js

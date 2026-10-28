@@ -72,7 +72,29 @@ counts.
 in the catalog — the native `openai` and `google` entries ship later Codex and
 Gemini 3.x models instead.
 
-### The roster
+### What this bench runs
+
+Ten models from OpenCode Zen's free tier (`*-free`), because a benchmark nobody
+can afford to re-run is a press release. Nothing here is paid; the cost is a rate
+limit. `runner/config.json`, 3 reps per task.
+
+| model | id |
+|---|---|
+| DeepSeek V4.1 Flash | `deepseek-v4.1-flash-free` |
+| GLM-5.3 Flash | `glm-5.3-flash-free` |
+| Kimi K2.5 | `kimi-k2.5-free` |
+| Laguna S 2.1 | `laguna-s-2.1-free` |
+| LongCat-2.0 | `longcat-2.0-free` |
+| MiMo V2.5 | `mimo-v2.5-free` |
+| MiniMax-M3 | `minimax-m3-free` |
+| Muse Spark 1.3 Contributor | `muse-spark-1.3-contributor-free` |
+| Nemotron 3.5 Lightning | `nemotron-3.5-lightning-free` |
+| Qwen3.6 Plus | `qwen3.6-plus-free` |
+
+A model that fails every task stays in the table at `0.00`: removing it would
+hide the most useful row in the dataset.
+
+### The adjacent roster
 
 The 20 models below are the roster an adjacent benchmark runs (see
 [Provenance](#provenance)). Names, ids and variants come from its `models.json`;
@@ -180,7 +202,8 @@ The difference in median LOC is the cheapest lever against AI bloat that any tea
 
 ```
 tasks/               5 airtight Python specs (task.md) + reference/solution.py + pytest suite
-runner/run.js        model × task × variant × rep → OpenRouter → Docker sandbox → data/raw.json
+runner/run.js        model × task × variant × rep → provider → Docker sandbox → data/raw.json
+runner/providers.json  endpoints and the env var holding each key (Zen free, OpenRouter)
 runner/score.js      aggregates raw.json → data/results.json (throws on inconsistent input)
 runner/test_score.js self-test of the scorer (no API required)
 index.html           interactive leaderboard: pass@1 vs waste with a Pareto
@@ -199,7 +222,7 @@ Every generated solution runs inside a container with:
 
 Code written by models is treated as hostile. It never touches the host.
 
-**Runs are repeated 5×** per task (configurable in `runner/config.json`). If a model can't pass 5 out of 5, its `pass@5` is reported as `false` and its LOC is discarded — a solution you can't rely on isn't a solution you should count.
+**Runs are repeated 3×** per task (`reps` in `runner/config.json`). A task's `pass@1` is the share of those runs that pass; its LOC only counts once that share reaches 0.6. A solution that passes one time in three is not a solution you can rely on, so its line count is not evidence of anything.
 
 ---
 
@@ -211,10 +234,11 @@ docker build -t slopbench-sandbox sandbox/
 
 # 2. Offline smoke test with canned fixtures — no API key needed
 node runner/run.js && node runner/score.js
-node runner/test_score.js
+node runner/test_score.js && node runner/test_provider.js
 
-# 3. Real run — pick your models in runner/config.json
-export OPENROUTER_API_KEY=sk-or-...
+# 3. Real run — the free roster is in runner/config.json, the key in
+#    runner/providers.json. A Zen key comes from https://opencode.ai/auth
+export OPENCODE_API_KEY=sk-...
 node runner/run.js && node runner/score.js
 
 # 4. Watch it live
@@ -227,12 +251,18 @@ python3 -m http.server 8000
 
 A scheduled GitHub Action regenerates `data/` every Monday and commits it. The repository stays static: no backend, no database, no accounts.
 
+### Providers
+
+`runner/providers.json` holds the endpoints. A model id only exists at one of them, so a config can mix: `{ "id": "...", "provider": "openrouter" }` overrides the config-wide `provider`. Getting this wrong fails as a 400 that looks like a bad model, which is why `runner/test_provider.js` checks every config offline.
+
+The live roster is OpenCode Zen's free tier (`*-free`): OpenCode absorbs the cost, so a full sweep is free but rate-limited. Without `OPENCODE_API_KEY` the weekly job skips instead of going red.
+
 ---
 
 ## Add a model
 
 ```json
-{ "id": "z-ai/glm-5.3-flash" }
+{ "id": "glm-5.3-flash-free" }
 ```
 
 in `runner/config.json → models`. That's it. Free-tier models work but will rate-limit; the runner retries with exponential backoff and records `api_error` entries rather than aborting the run.

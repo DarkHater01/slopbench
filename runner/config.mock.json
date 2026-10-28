@@ -6,7 +6,6 @@
     "vanilla": "You are an expert Python developer. Solve the task exactly as specified.",
     "minimal": "You write the least Python that fully satisfies the spec. Standard library only. No classes, no abstractions, no comments, no error handling beyond what the spec requires, no extra features. A few clear lines beat a clever framework. Output only the code."
   },
-  "openrouter_base": "https://openrouter.ai/api/v1",
   "models": [
     { "id": "mock-lean", "fixture": "mock-lean" },
     { "id": "mock-bloated", "fixture": "mock-bloated" },
