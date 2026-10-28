@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T03:29:02.566Z",
+  "generated_at": "2026-10-28T03:49:30.812Z",
   "reps": 3,
   "qualify_threshold": 0.6,
   "tasks": {
@@ -355,12 +355,94 @@
     },
     {
       "id": "mimo-v2.6-flash-free",
-      "status": "in_progress",
-      "note": "1 of 10 runs were throttled; retried next sweep"
+      "status": "complete",
+      "vanilla": {
+        "per_task": {
+          "01-parse-args": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 24,
+            "inflation": 1.26
+          },
+          "02-dedupe-json": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 12,
+            "inflation": 1
+          },
+          "03-date-range": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 13,
+            "inflation": 1.18
+          },
+          "04-retry-backoff": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 11,
+            "inflation": 1
+          },
+          "05-csv-merge": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 40,
+            "inflation": 1.67
+          }
+        },
+        "pass_at_1": 1,
+        "inflation": 1.22
+      },
+      "minimal": {
+        "per_task": {
+          "01-parse-args": {
+            "pass_at_1": 0.67,
+            "consistent": false,
+            "loc": 18.5,
+            "inflation": 0.97
+          },
+          "02-dedupe-json": {
+            "pass_at_1": 0.67,
+            "consistent": false,
+            "loc": 11.5,
+            "inflation": 0.96
+          },
+          "03-date-range": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 13,
+            "inflation": 1.18
+          },
+          "04-retry-backoff": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 11,
+            "inflation": 1
+          },
+          "05-csv-merge": {
+            "pass_at_1": 1,
+            "consistent": true,
+            "loc": 22,
+            "inflation": 0.92
+          }
+        },
+        "pass_at_1": 0.87,
+        "inflation": 1.01
+      },
+      "ponytail_delta": {
+        "per_task": {
+          "01-parse-args": 5.5,
+          "02-dedupe-json": 0.5,
+          "03-date-range": 0,
+          "04-retry-backoff": 0,
+          "05-csv-merge": 18
+        },
+        "overall": 4.8
+      }
     },
     {
       "id": "beam-free",
-      "status": "pending"
+      "status": "in_progress",
+      "note": "1 of 26 runs were throttled; retried next sweep"
     },
     {
       "id": "flint-40b-free",
