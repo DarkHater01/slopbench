@@ -169,5 +169,176 @@
     "extra_files": [],
     "ms": 5856,
     "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 8,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 7428,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 3,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 5857,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "02-dedupe-json",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 8,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 7247,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": true,
+    "loc": 21,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 9889,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 19,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 12122,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "03-date-range",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 16,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 16779,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 13,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 8737,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 17,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 11862,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "03-date-range",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 14,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 18877,
+    "tail": ""
   }
 ]
