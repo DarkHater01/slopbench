@@ -340,5 +340,157 @@
     "extra_files": [],
     "ms": 18877,
     "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 6536,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 5847,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "04-retry-backoff",
+    "variant": "vanilla",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 5975,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 6099,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 5528,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "04-retry-backoff",
+    "variant": "minimal",
+    "rep": 3,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 5,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 11,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 5499,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 1,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 26,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 17989,
+    "tail": ""
+  },
+  {
+    "model": "deepseek-v4.1-flash-free",
+    "task": "05-csv-merge",
+    "variant": "vanilla",
+    "rep": 2,
+    "passed": true,
+    "timed_out": false,
+    "junit": {
+      "tests": 6,
+      "failures": 0,
+      "errors": 0
+    },
+    "suspicious": false,
+    "loc": 22,
+    "harness": "opencode",
+    "extra_files": [],
+    "ms": 44746,
+    "tail": ""
   }
 ]
