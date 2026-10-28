@@ -193,6 +193,8 @@ const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const f1 = (v) => (v == null ? "—" : Number(v).toFixed(2));
 const fx = (v) => (v == null ? "—" : Number(v).toFixed(2) + "×");
+// Δ = vanilla LOC − minimal LOC. A negative Δ means the minimal prompt wrote more.
+const fdelta = (v) => (v == null ? "—" : v > 0 ? `−${v}` : v < 0 ? `+${-v}` : "0");
 
 const XS = {
   inflation: { label: "inflation", axis: "inflation (vanilla) →", get: (m) => m.vanilla?.inflation },
@@ -237,7 +239,7 @@ function renderHighlights() {
   const cards = [
     ["Best pass@1", best ? f1(best.vanilla.pass_at_1) : "—", best ? name(best.id) : "no scored model"],
     ["Leanest solution", lean ? fx(lean.vanilla.inflation) : "—", lean ? name(lean.id) : "no scored model"],
-    ["Most lines shaved", delta ? `−${delta.ponytail_delta.overall} LOC` : "—", delta ? name(delta.id) + " with the minimal prompt" : "no pair yet"],
+    ["Most lines shaved", delta ? `${fdelta(delta.ponytail_delta.overall)} LOC` : "—", delta ? name(delta.id) + " with the minimal prompt" : "no pair yet"],
     ["Models qualified", `${done.length}/${DATA.models.length}`, `${DATA.reps} reps per task · threshold ${DATA.qualify_threshold}`],
   ];
   $("hl").innerHTML = cards.map(([k, v, s]) => `
@@ -328,7 +330,7 @@ function drawChart() {
   const show = (ev, m) => {
     tip.innerHTML = `<b>${esc(name(m.id))}</b><br>pass@1 ${f1(m.vanilla.pass_at_1)}<br>
       inflation ${fx(m.vanilla.inflation)} · minimal ${fx(m.minimal?.inflation)}<br>
-      Δ ${m.ponytail_delta?.overall == null ? "—" : "−" + m.ponytail_delta.overall + " LOC"}`;
+      Δ ${fdelta(m.ponytail_delta?.overall)} LOC`;
     tip.style.opacity = 1;
     const r = tip.getBoundingClientRect();
     tip.style.left = Math.min(ev.clientX + 14, innerWidth - r.width - 12) + "px";
@@ -374,7 +376,7 @@ function renderTable() {
         <td class="num ${m.vanilla?.pass_at_1 >= DATA.qualify_threshold ? "good" : m.vanilla?.pass_at_1 > 0 ? "warn" : "bad"}">${f1(m.vanilla?.pass_at_1)}</td>
         <td class="num ${cls(m.vanilla?.inflation, 3, 5)}">${fx(m.vanilla?.inflation)}</td>
         <td class="num ${cls(m.minimal?.inflation, 3, 5)}">${fx(m.minimal?.inflation)}</td>
-        <td class="num">${m.ponytail_delta?.overall == null ? '<span class="null">—</span>' : "−" + m.ponytail_delta.overall}</td>
+        <td class="num">${m.ponytail_delta?.overall == null ? '<span class="null">—</span>' : fdelta(m.ponytail_delta.overall)}</td>
         <td class="num">${avgLoc(m) == null ? '<span class="null">—</span>' : avgLoc(m).toFixed(1)}</td>` : `
         <td class="num null" colspan="5">not scored (${esc(m.status)})</td>`}
       </tr>`;

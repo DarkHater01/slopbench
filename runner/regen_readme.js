@@ -10,6 +10,8 @@ const RESULTS = process.env.SLOPBENCH_OUT || path.join(ROOT, "data", "results.js
 const README = path.join(ROOT, "README.md");
 
 const fmt = (n) => `${n}×`;
+// Δ = vanilla LOC − minimal LOC: negative means the minimal prompt wrote MORE.
+const fdelta = (v) => (v > 0 ? `−${v}` : v < 0 ? `+${-v}` : "0");
 
 function row(m) {
   const v = m.vanilla && m.vanilla.inflation != null;
@@ -22,7 +24,7 @@ function row(m) {
     return `| ${m.id} | _${m.note || m.status}_ | | | |`;
   return (
     `| ${m.id} | ${m.vanilla.pass_at_1} | ${fmt(m.vanilla.inflation)} | ` +
-    `${fmt(m.minimal.inflation)} | ${m.ponytail_delta.overall == null ? "—" : `−${m.ponytail_delta.overall} LOC`} |`
+    `${fmt(m.minimal.inflation)} | ${m.ponytail_delta.overall == null ? "—" : `${fdelta(m.ponytail_delta.overall)} LOC`} |`
   );
 }
 
