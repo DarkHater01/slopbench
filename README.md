@@ -33,11 +33,11 @@ A model that solves a 12-line task in 96 lines has inflation ≈ 8.0×. It passe
 <!-- LEADERBOARD:start -->
 | model | pass@1 | inflation | inflation (minimal prompt) | Δ ponytail |
 |---|---|---|---|---|
-| deepseek-v4.1-flash-free | _pending_ | | | |
-| glm-5.3-flash-free | _pending_ | | | |
-| nemotron-3.5-lightning-free | _pending_ | | | |
-| nemotron-3.5-super-vl-free | _pending_ | | | |
-| mimo-v2.6-flash-free | _pending_ | | | |
+| deepseek-v4.1-flash-free | 0.93 | 1.14× | 0.96× | −2.5 LOC |
+| glm-5.3-flash-free | 0.93 | 1.11× | 1.04× | −1.3 LOC |
+| nemotron-3.5-lightning-free | 0.87 | 1.19× | 1.26× | −-2 LOC |
+| nemotron-3.5-super-vl-free | 1 | 1.25× | 1.19× | −1.6 LOC |
+| mimo-v2.6-flash-free | _1 of 10 runs were throttled; retried next sweep_ | | | |
 | beam-free | _pending_ | | | |
 | flint-40b-free | _pending_ | | | |
 | jev-1.13-free | _pending_ | | | |
